@@ -1,0 +1,59 @@
+@import 'background-colors';
+@import 'cards';
+@import 'headings';
+@import 'margin';
+@import 'padding';
+@import 'text-colors';
+
+body * {  
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  box-sizing: border-box;  
+  font-family: Arial, sans-serif
+}
+
+.trinium-ty, .trinium-tiny, .trinium-320 {
+  flex-basis: 320px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 5px;
+}
+
+.trinium-sm, .trinium-small, .trinium-640 {
+  flex-basis: 640px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 5px;
+}
+
+.trinium-md, .trinium-medium, .trinium-960 {
+  flex-basis: 960px;;
+  flex-shrink: 0;
+  padding: 5px;
+}
+
+.trinium-lg, .trinium-large, .trinium-1280 {
+  flex-basis: 1280px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 5px;
+}
+
+.trinium-xl, .trinium-extra-large, .trinium-1600 {
+  flex-basis: 1600px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 5px;
+}
+
+.no-stretch {
+  flex-grow: 0 !important;
+}

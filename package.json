@@ -1,0 +1,27 @@
+{
+  "name": "trinium",
+  "version": "0.1.0",
+  "description": "Trinium Web Development Framework",
+  "main": "index.js",
+  "scripts": {
+    "start": "./make.sh",
+    "test": "eslint index.js"
+  },
+  "keywords": [
+    "trinium",
+    "web",
+    "development",
+    "framework",
+    "positioning"
+  ],
+  "author": "Rich Lowe",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.16.4"
+  },
+  "dependencies": {
+    "ezforms": "^2.0.4",
+    "ezhtml": "^1.4.7",
+    "ezobjects": "^5.4.7"
+  }
+}

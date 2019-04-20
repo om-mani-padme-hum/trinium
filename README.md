@@ -1,4 +1,4 @@
-# Trinium v0.4.2
+# Trinium v0.4.3
 
 ## Status
 
@@ -118,6 +118,11 @@ app.get(`/`, (req, res, next) => {
   next();
 });
 ```
+
+## Trinium Demo (Partial) Screnshot
+
+![alt text](https://github.com/om-mani-padme-hum/trinium/raw/master/images/demo.png "The bottom is cut off because I couldn't take a scren shot of the page larger than my screen size.")
+
 ## Page Class
 
 ```javascript

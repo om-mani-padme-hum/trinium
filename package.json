@@ -23,7 +23,6 @@
     "ezforms": "^2.2.2",
     "ezhtml": "^1.5.0",
     "ezobjects": "^5.4.7",
-    "eztables": "^1.0.1",
-    "image-size": "^0.7.3"
+    "eztables": "^1.0.1"
   }
 }

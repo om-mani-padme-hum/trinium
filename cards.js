@@ -12,7 +12,7 @@ const configCard = {
   extendsConfig: ezhtml.configContainer,
   properties: [
     { name: `bodyClasses`, type: `Array`, arrayOf: { type: `string` } },
-    { name: `cardClasses`, type: `Array`, arrayOf: { type: `string` } },
+    { name: `wrapperClasses`, type: `Array`, arrayOf: { type: `string` } },
     { name: `header`, type: `string`, default: `Card Header` },
     { name: `headerClasses`, type: `Array`, arrayOf: { type: `string` } },
     { name: `size`, type: `string`, default: `tiny` }
@@ -31,15 +31,6 @@ Card.prototype.addBodyClass = function (bodyClass) {
   return this;
 };
 
-/** Add card class helper */
-Card.prototype.addCardClass = function (cardClass) {
-  /** Append class to classes array */
-  this.cardClasses().push(cardClass);
-  
-  /** Return this object for call chaining */
-  return this;
-};
-
 /** Add header class helper */
 Card.prototype.addHeaderClass = function (headerClass) {
   /** Append class to classes array */
@@ -49,18 +40,35 @@ Card.prototype.addHeaderClass = function (headerClass) {
   return this;
 };
 
+/** Add card class helper */
+Card.prototype.addWrapperClass = function (cardClass) {
+  /** Append class to classes array */
+  this.wrapperClasses().push(cardClass);
+  
+  /** Return this object for call chaining */
+  return this;
+};
+
 /** Render card */
 Card.prototype.render = function (indent = 0) {
+  /** Validate size */
   const sizeClass = validation.validateSize(this.size());
 
-  const card = new ezhtml.Div().addClass(sizeClass).addClass(this.cardClasses().join(` `));
+  /** Card wrapper div */
+  const wrapper = new ezhtml.Div().addClass(sizeClass).addClass(this.wrapperClasses().join(` `));
+  
+  /** Create card header and append header text */
   const cardHeader = new ezhtml.Div().addClass(`trinium-card-header`).addClass(this.headerClasses().join(` `)).text(this.header());
+  
+  /** Create card body and transfer content */
   const cardBody = new ezhtml.Div().addClass(`trinium-card-body`).addClass(this.bodyClasses().join(` `)).content(this.content());
   
-  card.append(cardHeader);
-  card.append(cardBody);
+  /** Append card header and body to wrapper */
+  wrapper.append(cardHeader);
+  wrapper.append(cardBody);
   
-  return card.render(indent);
+  /** Render wrapper */
+  return wrapper.render(indent);
 };
 
 /** Export class */

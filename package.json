@@ -20,8 +20,8 @@
     "express": "^4.16.4"
   },
   "dependencies": {
-    "ezforms": "^2.0.4",
-    "ezhtml": "^1.4.7",
+    "ezforms": "^2.2.2",
+    "ezhtml": "^1.5.0",
     "ezobjects": "^5.4.7"
   }
 }

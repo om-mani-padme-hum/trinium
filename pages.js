@@ -3,7 +3,10 @@ const ezhtml = require(`ezhtml`);
 const ezobjects = require(`ezobjects`);
 
 /** Require local moduels */
+const blanks = require(`./blanks`);
 const cards = require(`./cards`);
+const forms = require(`./forms`);
+const headings = require(`./headings`);
 
 /** Configure class */
 const configPage = {
@@ -20,6 +23,15 @@ const configPage = {
 /** Create class */
 ezobjects.createClass(configPage);
 
+/** Append and return new blank */
+Page.prototype.blank = function () {
+  const blank = new blanks.Blank();
+  
+  this.append(blank);
+  
+  return blank;
+};
+
 /** Append and return new card */
 Page.prototype.card = function () {
   const card = new cards.Card();
@@ -29,15 +41,23 @@ Page.prototype.card = function () {
   return card;
 };
 
-/** Append and return new card */
-Page.prototype.row = function () {
-  const card = new cards.Card();
+/** Append and return new form */
+Page.prototype.form = function () {
+  const form = new forms.Form();
   
-  this.append(card);
+  this.append(form);
   
-  return card;
+  return form;
 };
 
+/** Append and return new heading */
+Page.prototype.heading = function () {
+  const heading = new headings.Heading();
+  
+  this.append(heading);
+  
+  return heading;
+};
 
 /** Render page */
 Page.prototype.render = function (indent = 0) {

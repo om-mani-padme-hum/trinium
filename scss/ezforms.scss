@@ -1,0 +1,359 @@
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex-direction($val) {
+  -webkit-flex-direction: $val;
+  -moz-flex-direction: $val;
+  -ms-flex-direction: $val;
+  -o-flex-direction: $val;
+  flex-direction: $val;
+}
+
+@mixin flex-wrap($val) {
+  -webkit-flex-wrap: $val;
+  -moz-flex-wrap: $val;
+  -ms-flex-wrap: $val;
+  -o-flex-wrap: $val;
+  flex-wrap: $val;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex: $values;
+  -webkit-flex: $values;
+  -ms-flex: $values;
+  flex: $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;  
+  -moz-box-ordinal-group: $val;     
+  -ms-flex-order: $val;     
+  -webkit-order: $val;  
+  order: $val;
+}
+
+@mixin box-sizing($val) {
+  -webkit-box-sizing: $val;
+  -moz-box-sizing: $val;
+  box-sizing: $val;
+}
+
+$num-cols: 16;
+
+form, * {
+  @include box-sizing(border-box);
+}
+
+.ezforms-h1, .ezforms-h2, .ezforms-h3, .ezforms-h4, .ezforms-h5, .ezforms-h6 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+  padding: 0px;
+  margin: 0px;
+}
+
+form {
+  @include flexbox();
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+  justify-content: flex-start;
+  margin: auto;
+  
+  .ezforms-h1, .ezforms-h2, .ezforms-h3, .ezforms-h4, .ezforms-h5, .ezforms-h6 {
+    flex-grow: $num-cols;
+    flex-basis: 100%;
+  }
+}
+
+button {
+  padding: 10px 15px 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid rgb(155, 155, 155);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+textarea {
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=tel], input[type=file], input[type=number], input[type=url], textarea {
+  padding: 6px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type=color] {
+  height: 32px;
+  width: 48px;
+  padding: 2px;
+  border-width: 1px;
+}
+
+input[type=date], input[type=datetime-local], input[type=time], input[type=month], input[type=week] {
+  padding: 3px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type=range] {
+  margin-top: 3px;
+}
+
+input[type=radio] {
+  display: inline-block;
+}
+
+input:not([type=checkbox]):not([type=radio]):not([type=file]) {
+  height: 33px;
+}
+
+select {
+  margin: 1px 0px 0px 0px;
+  font-size: 16px;
+  width: 100%;
+  -webkit-appearance: menulist-button;
+}
+
+select:not([multiple]) {
+  height: 33px;
+}
+
+select[multiple] {
+  font-size: 16px;
+  -webkit-appearance: none;
+  background: rgb(255, 255, 255);
+}
+
+%input {
+  margin-bottom: 15px;;
+  padding-right: 10px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.col-1 {
+  flex-basis: 6.25%;
+  @extend %input;
+}
+
+.col-2 {
+  flex-basis: 12.5%;
+  @extend %input;
+}
+
+.col-3 {
+  flex-basis: 18.75%;
+  @extend %input;
+}
+
+.col-4 {
+  flex-grow: 0;
+  flex-basis: 25%;
+  @extend %input;
+}
+
+.col-5 {
+  flex-basis: 31.25%;
+  @extend %input;
+}
+
+.col-6 {
+  flex-basis: 37.5%;
+  @extend %input;
+}
+
+.col-7 {
+  flex-basis: 43.75%;
+  @extend %input;
+}
+
+.col-8 {
+  flex-basis: 50%;
+  @extend %input;
+}
+
+.col-9 {
+  flex-basis: 56.25%;
+  @extend %input;
+}
+
+.col-10 {
+  flex-basis: 62.5%;
+  @extend %input;
+}
+
+.col-11 {
+  flex-basis: 68.75%;
+  @extend %input;
+}
+
+.col-12 {
+  flex-basis: 75%;
+  @extend %input;
+}
+
+.col-13 {
+  flex-basis: 81.25%;
+  @extend %input;
+}
+
+.col-14 {
+  flex-basis: 87.5%;
+  @extend %input;
+}
+
+.col-15 {
+  flex-basis: 93.75%;
+  @extend %input;
+}
+
+.col-16 {
+  flex-basis: 100%;
+  @extend %input;
+}
+
+%options {
+  display: flex;
+  @include flex-wrap(nowrap);
+}
+
+.options-horizontal {
+  @extend %options;
+  height: 34px;
+  @include flex-direction(row);
+  align-items: center;
+}
+
+.options-vertical {
+  @extend %options;
+  @include flex-direction(column);
+  align-items: flex-start;
+}
+
+%option {
+  padding: 0px 5px 0px 5px;
+  
+  label {
+    display: inline-block;
+    font-weight: normal;
+    margin-bottom: 5px;
+  }
+}
+
+.options-horizontal > div {
+  @extend %option;
+  display: inline-block;
+}
+
+.options-vertical > div {
+  @extend %option;
+  display: block;
+}
+
+button {
+  margin-top: 10px;
+}
+
+%error {
+  width: 100%;
+  border-radius: 10px;
+  padding: 15px 10px 15px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.alert-error {
+  @extend %error;
+  color: rgba(198, 13, 38, 1);
+  border: 1px solid rgba(198, 13, 38, 0.4);
+  background-color: rgba(198, 13, 38, 0.3);
+}
+
+.alert-warning {
+  @extend %error;
+  color: rgba(215, 125, 0, 1);
+  border: 1px solid rgba(215, 125, 0, 0.4);
+  background-color: rgba(215, 125, 0, 0.3);
+}
+
+.alert-info {
+  @extend %error;
+  color: rgba(0, 135, 225, 1);
+  border: 1px solid rgba(0, 135, 255, 0.4);
+  background-color: rgba(0, 135, 255, 0.3);
+}
+
+.alert-success {
+  @extend %error;
+  color: rgba(50, 132, 39, 1);
+  border: 1px solid rgba(50, 132, 39, 0.4);
+  background-color: rgba(50, 132, 39, 0.3);
+}
+
+.octicon-alert {
+  fill: rgba(198, 13, 38, 1);
+  margin-bottom: -2px;
+}
+
+.octicon-issue-opened {
+  fill: rgba(255, 148, 0, 1);
+  margin-bottom: -3px;
+}
+
+.octicon-question {
+  fill: rgba(0, 135, 255, 1);
+  margin-bottom: -3px;
+}
+
+.octicon-check {
+  fill: rgba(50, 132, 39, 1);
+  margin-bottom: -4px;
+}
+
+button[type=reset] {
+  color: rgba(255, 255, 255, 1);
+  background: rgba(225, 0, 0, 1);
+}
+
+button[type=reset]:hover {
+  background: rgba(225, 0, 0, 0.8);
+}
+
+button[type=button] {
+  color: rgba(255, 255, 255, 1);
+  background: rgba(125, 125, 125, 1);
+}
+
+button[type=button]:hover {
+  background: rgba(125, 125, 125, 0.8);
+}
+
+button[type=submit] {
+  color: rgba(255, 255, 255, 1);
+  background: rgba(68, 110, 155, 1);
+}
+
+button[type=submit]:hover {
+  background: rgba(68, 110, 155, 0.8);
+}

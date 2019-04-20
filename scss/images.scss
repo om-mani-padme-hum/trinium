@@ -1,191 +1,23 @@
-.t-image-wrapper {
+.image-wrapper {
   text-align: center;
 }
 
-.t-image-wrapper img {
+.image-wrapper img {
   border: 0px;
 }
 
-.t-image-shadow {
+.image-shadow {
   box-shadow: 5px 5px 5px grey;
 }
 
-.t-image-shadow-sm, .t-image-shadow-small {
+.image-shadow-sm, .image-shadow-small {
   box-shadow: 3px 3px 3px grey;
 }
 
-.t-image-shadow-md, .t-image-shadow-medium {
+.image-shadow-md, .image-shadow-medium {
   box-shadow: 5px 5px 5px grey;
 }
 
-.t-image-shadow-lg, .t-image-shadow-large {
+.image-shadow-lg, .image-shadow-large {
   box-shadow: 10px 10px 10px grey;
-}
-
-.t-image-100 {
-  width: 98%;
-}
-
-.t-image-90 {
-  width: 88%;
-}
-
-.t-image-80 {
-  width: 80%;
-}
-
-.t-image-75 {
-  width: 73%;
-}
-
-.t-image-70 {
-  width: 68%;
-}
-
-.t-image-66 {
-  width: 64%;
-}
-
-.t-image-60 {
-  width: 58%;
-}
-
-.t-image-50 {
-  width: 48%;
-}
-
-.t-image-40 {
-  width: 38%;
-}
-
-.t-image-33 {
-  width: 31%;
-}
-
-.t-image-30 {
-  width: 28%;
-}
-
-.t-image-25 {
-  width: 23%;
-}
-
-.t-image-20 {
-  width: 18%;
-}
-
-.t-image-15 {
-  width: 13%;
-}
-
-.t-image-10 {
-  width: 8%;
-}
-
-.t-image-100px {
-  width: 75px;
-}
-
-.t-image-125px {
-  width: 100px;
-}
-
-.t-image-150px {
-  width: 125px;
-}
-
-.t-image-175px {
-  width: 150px;
-}
-
-.t-image-200px {
-  width: 175px;
-}
-
-.t-image-225px {
-  width: 200px;
-}
-
-.t-image-250px {
-  width: 225px;
-}
-
-.t-image-300px {
-  width: 275px;
-}
-
-.t-image-350px {
-  width: 325px;
-}
-
-.t-image-400px {
-  width: 375px;
-}
-
-.t-image-450px {
-  width: 425px;
-}
-
-.t-image-500px {
-  width: 475px;
-}
-
-.t-image-550px {
-  width: 525px;
-}
-
-.t-image-600px {
-  width: 575px;
-}
-
-.t-image-650px {
-  width: 625px;
-}
-
-.t-image-700px {
-  width: 675px;
-}
-
-.t-image-750px {
-  width: 725px;
-}
-
-.t-image-800px {
-  width: 775px;
-}
-
-.t-image-900px {
-  width: 875px;
-}
-
-.t-image-1000px {
-  width: 975px;
-}
-
-.t-image-1100px {
-  width: 1075px;
-}
-
-.t-image-1200px {
-  width: 1175px;
-}
-
-.t-image-ty, .t-image-tiny {
-  width: 295px;
-}
-
-.t-image-sm, .t-image-small {
-  width: 455px;
-}
-
-.t-image-md, .t-image-medium {
-  width: 615px;
-}
-
-.t-image-lg, .t-image-large {
-  width: 935px;
-}
-
-.t-image-xl, .t-image-extra-large {
-  width: 1255px;
 }

@@ -1,5 +1,5 @@
 
-body {
+body, .flex-stack {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -8,218 +8,222 @@ body {
   align-content: flex-start;
 }
 
+.flex-stack {
+  padding: 0px !important;
+}
+
 %container-defaults {
   flex-grow: 1;
   flex-shrink: 0;
   padding: 10px;
 }
 
-.t-flex-100 {
+.flex-100 {
   flex-basis: 100%;
   @extend %container-defaults;
 }
 
-.t-flex-90 {
+.flex-90 {
   flex-basis: 90%;
   @extend %container-defaults;
 }
 
-.t-flex-80 {
+.flex-80 {
   flex-basis: 80%;
   @extend %container-defaults;
 }
 
-.t-flex-75 {
+.flex-75 {
   flex-basis: 75%;
   @extend %container-defaults;
 }
 
-.t-flex-70 {
+.flex-70 {
   flex-basis: 70%;
   @extend %container-defaults;
 }
 
-.t-flex-66 {
+.flex-66 {
   flex-basis: 66%;
   @extend %container-defaults;
 }
 
-.t-flex-60 {
+.flex-60 {
   flex-basis: 60%;
   @extend %container-defaults;
 }
 
-.t-flex-50 {
+.flex-50 {
   flex-basis: 50%;
   @extend %container-defaults;
 }
 
-.t-flex-40 {
+.flex-40 {
   flex-basis: 40%;
   @extend %container-defaults;
 }
 
-.t-flex-33 {
+.flex-33 {
   flex-basis: 33%;
   @extend %container-defaults;
 }
 
-.t-flex-30 {
+.flex-30 {
   flex-basis: 30%;
   @extend %container-defaults;
 }
 
-.t-flex-25 {
+.flex-25 {
   flex-basis: 25%;
   @extend %container-defaults;
 }
 
-.t-flex-20 {
+.flex-20 {
   flex-basis: 20%;
   @extend %container-defaults;
 }
 
-.t-flex-15 {
+.flex-15 {
   flex-basis: 10%;
   @extend %container-defaults;
 }
 
-.t-flex-10 {
+.flex-10 {
   flex-basis: 10%;
   @extend %container-defaults;
 }
 
-.t-flex-100px {
+.flex-100px {
   flex-basis: 100px;
   @extend %container-defaults;
 }
 
-.t-flex-125px {
+.flex-125px {
   flex-basis: 125px;
   @extend %container-defaults;
 }
 
-.t-flex-150px {
+.flex-150px {
   flex-basis: 150px;
   @extend %container-defaults;
 }
 
-.t-flex-175px {
+.flex-175px {
   flex-basis: 175px;
   @extend %container-defaults;
 }
 
-.t-flex-200px {
+.flex-200px {
   flex-basis: 200px;
   @extend %container-defaults;
 }
 
-.t-flex-225px {
+.flex-225px {
   flex-basis: 225px;
   @extend %container-defaults;
 }
 
-.t-flex-250px {
+.flex-250px {
   flex-basis: 250px;
   @extend %container-defaults;
 }
 
-.t-flex-300px {
+.flex-300px {
   flex-basis: 300px;
   @extend %container-defaults;
 }
 
-.t-flex-350px {
+.flex-350px {
   flex-basis: 350px;
   @extend %container-defaults;
 }
 
-.t-flex-400px {
+.flex-400px {
   flex-basis: 400px;
   @extend %container-defaults;
 }
 
-.t-flex-450px {
+.flex-450px {
   flex-basis: 450px;
   @extend %container-defaults;
 }
 
-.t-flex-500px {
+.flex-500px {
   flex-basis: 500px;
   @extend %container-defaults;
 }
 
-.t-flex-550px {
+.flex-550px {
   flex-basis: 550px;
   @extend %container-defaults;
 }
 
-.t-flex-600px {
+.flex-600px {
   flex-basis: 600px;
   @extend %container-defaults;
 }
 
-.t-flex-650px {
+.flex-650px {
   flex-basis: 650px;
   @extend %container-defaults;
 }
 
-.t-flex-700px {
+.flex-700px {
   flex-basis: 700px;
   @extend %container-defaults;
 }
 
-.t-flex-750px {
+.flex-750px {
   flex-basis: 750px;
   @extend %container-defaults;
 }
 
-.t-flex-800px {
+.flex-800px {
   flex-basis: 800px;
   @extend %container-defaults;
 }
 
-.t-flex-900px {
+.flex-900px {
   flex-basis: 900px;
   @extend %container-defaults;
 }
 
-.t-flex-1000px {
+.flex-1000px {
   flex-basis: 1000px;
   @extend %container-defaults;
 }
 
-.t-flex-1100px {
+.flex-1100px {
   flex-basis: 1100px;
   @extend %container-defaults;
 }
 
-.t-flex-1200px {
+.flex-1200px {
   flex-basis: 1200px;
   @extend %container-defaults;
 }
 
-.t-flex-ty, .t-flex-tiny {
+.flex-ty, .flex-tiny {
   flex-basis: 320px;
   @extend %container-defaults;
 }
 
-.t-flex-sm, .t-flex-small {
+.flex-sm, .flex-small {
   flex-basis: 480px;
   @extend %container-defaults;
 }
 
-.t-flex-md, .t-flex-medium {
+.flex-md, .flex-medium {
   flex-basis: 640px;
   @extend %container-defaults;
 }
 
-.t-flex-lg, .t-flex-large {
+.flex-lg, .flex-large {
   flex-basis: 960px;
   @extend %container-defaults;
 }
 
-.t-flex-xl, .t-flex-extra-large {
+.flex-xl, .flex-extra-large {
   flex-basis: 1280px;
   @extend %container-defaults;
 }

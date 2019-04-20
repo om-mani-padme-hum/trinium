@@ -4,7 +4,7 @@ const ezhtml = require(`ezhtml`);
 const ezobjects = require(`ezobjects`);
 
 /** Require local modules */
-const validation = require(`./validation`);
+const validation = require(`../validation`);
 
 /** Configure class */
 const configForm = {
@@ -35,7 +35,7 @@ Form.prototype.render = function (indent = 0) {
   const sizeClass = validation.validateSize(this.size());
   
   /** Create wrapper div */
-  const wrapper = new ezhtml.Div().addClass(sizeClass).addClass(`t-form-wrapper`).addClass(this.wrapperClasses().join(` `));
+  const wrapper = new ezhtml.Div().addClass(sizeClass).addClass(`form-wrapper`).addClass(this.wrapperClasses().join(` `));
   
   /** Create EZ Form */
   const form = new ezforms.Form();
@@ -65,4 +65,5 @@ Form.prototype.render = function (indent = 0) {
 };
 
 /** Export class */
+module.exports.configForm = configForm;
 module.exports.Form = Form;

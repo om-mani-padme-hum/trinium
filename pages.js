@@ -5,12 +5,7 @@ const ezobjects = require(`ezobjects`);
 const eztables = require(`eztables`);
 
 /** Require local moduels */
-const blanks = require(`./blanks`);
-const cards = require(`./cards`);
-const forms = require(`./forms`);
-const headings = require(`./headings`);
-const images = require(`./images`);
-const tables = require(`./tables`);
+const components = require(`./components`);
 
 /** Configure class */
 const configPage = {
@@ -27,12 +22,12 @@ const configPage = {
 /** Create class */
 ezobjects.createClass(configPage);
 
-/** Append and return new blank */
+/** Create, if desired append, and return new blank */
 Page.prototype.blank = function (append = true, wrapper = true) {
   if ( !wrapper )
     return new ezhtml.Div();
   
-  const blank = new blanks.Blank();
+  const blank = new components.Blank();
   
   if ( append )
     this.append(blank);
@@ -40,9 +35,9 @@ Page.prototype.blank = function (append = true, wrapper = true) {
   return blank;
 };
 
-/** Append and return new card */
+/** Create, if desired append, and return new card */
 Page.prototype.card = function (append = true) {
-  const card = new cards.Card();
+  const card = new components.Card();
   
   if ( append )
     this.append(card);
@@ -50,12 +45,12 @@ Page.prototype.card = function (append = true) {
   return card;
 };
 
-/** Append and return new form */
+/** Create, if desired append, and return new form */
 Page.prototype.form = function (append = true, wrapper = true) {
   if ( !wrapper )
     return new ezforms.Form();
   
-  const form = new forms.Form();
+  const form = new components.Form();
   
   if ( append )
     this.append(form);
@@ -63,12 +58,12 @@ Page.prototype.form = function (append = true, wrapper = true) {
   return form;
 };
 
-/** Append and return new H1 */
+/** Create, if desired append, and return new H1 */
 Page.prototype.h1 = function (append = true, wrapper = true) {
   if ( !wrapper )
     return new ezhtml.H1();
   
-  const h1 = new headings.H1();
+  const h1 = new components.H1();
   
   if ( append )
     this.append(h1);
@@ -76,12 +71,12 @@ Page.prototype.h1 = function (append = true, wrapper = true) {
   return h1;
 };
 
-/** Append and return new H2 */
+/** Create, if desired append, and return new H2 */
 Page.prototype.h2 = function (append = true, wrapper = true) {
   if ( !wrapper )
     return new ezhtml.H2();
   
-  const h2 = new headings.H2();
+  const h2 = new components.H2();
   
   if ( append )
     this.append(h2);
@@ -89,12 +84,12 @@ Page.prototype.h2 = function (append = true, wrapper = true) {
   return h2;
 };
 
-/** Append and return new H3 */
+/** Create, if desired append, and return new H3 */
 Page.prototype.h3 = function (append = true, wrapper = true) {
   if ( !wrapper )
     return new ezhtml.H3();
   
-  const h3 = new headings.H3();
+  const h3 = new components.H3();
   
   if ( append )
     this.append(h3);
@@ -102,12 +97,12 @@ Page.prototype.h3 = function (append = true, wrapper = true) {
   return h3;
 };
 
-/** Append and return new H4 */
+/** Create, if desired append, and return new H4 */
 Page.prototype.h4 = function (append = true, wrapper = true) {
   if ( !wrapper )
     return new ezhtml.H4();
   
-  const h4 = new headings.H4();
+  const h4 = new components.H4();
   
   if ( append )
     this.append(h4);
@@ -115,12 +110,12 @@ Page.prototype.h4 = function (append = true, wrapper = true) {
   return h4;
 };
 
-/** Append and return new H5 */
+/** Create, if desired append, and return new H5 */
 Page.prototype.h5 = function (append = true, wrapper = true) {
   if ( !wrapper )
     return new ezhtml.H5();
   
-  const h5 = new headings.H5();
+  const h5 = new components.H5();
   
   if ( append )
     this.append(h5);
@@ -128,12 +123,12 @@ Page.prototype.h5 = function (append = true, wrapper = true) {
   return h5;
 };
 
-/** Append and return new H6 */
+/** Create, if desired append, and return new H6 */
 Page.prototype.h6 = function (append = true, wrapper = true) {
   if ( !wrapper )
     return new ezhtml.H6();
   
-  const h6 = new headings.H6();
+  const h6 = new components.H6();
   
   if ( append )
     this.append(h6);
@@ -141,12 +136,12 @@ Page.prototype.h6 = function (append = true, wrapper = true) {
   return h6;
 };
 
-/** Append and return new image */
+/** Create, if desired append, and return new image */
 Page.prototype.image = function (append = true, wrapper = true) {
   if ( !wrapper )
     return new ezhtml.Image();
   
-  const image = new images.Image();
+  const image = new components.Image();
   
   if ( append )
     this.append(image);
@@ -182,12 +177,22 @@ Page.prototype.render = function (indent = 0) {
   return html.render(indent);
 };
 
-/** Append and return new table */
+/** Create, if desired append, and return new stack */
+Page.prototype.stack = function (append = true) {
+  const stack = new components.Stack();
+  
+  if ( append )
+    this.append(stack);
+  
+  return stack;
+};
+
+/** Create, if desired append, and return new table */
 Page.prototype.table = function (append = true, wrapper = true) {
   if ( !wrapper )
     return new eztables.Table();
   
-  const table = new tables.Table();
+  const table = new components.Table();
   
   if ( append )
     this.append(table);

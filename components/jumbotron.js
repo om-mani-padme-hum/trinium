@@ -1,4 +1,5 @@
 /** Require external modules */
+const ezhtml = require(`ezhtml`);
 const ezobjects = require(`ezobjects`);
 
 /** Configure class */
@@ -18,4 +19,5 @@ const configJumbotron = {
 ezobjects.createClass(configJumbotron);
 
 /** Export class */
+module.exports.configJumbotron = configJumbotron;
 module.exports.Jumbotron = Jumbotron;

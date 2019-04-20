@@ -3,7 +3,7 @@ const ezhtml = require(`ezhtml`);
 const ezobjects = require(`ezobjects`);
 
 /** Require local modules */
-const validation = require(`./validation`);
+const validation = require(`../validation`);
 
 /** Configure class */
 const configImage = {
@@ -35,7 +35,7 @@ Image.prototype.render = function (indent = 0) {
   const sizeClass = validation.validateSize(this.size());
   
   /** Create wrapper div and transfer content */
-  const wrapper = new ezhtml.Div().addClass(sizeClass).addClass(`t-image-wrapper`).addClass(this.wrapperClasses().join(` `));
+  const wrapper = new ezhtml.Div().addClass(sizeClass).addClass(`image-wrapper`).addClass(this.wrapperClasses().join(` `));
   
   /** Create image */
   const image = new ezhtml.Image();
@@ -59,11 +59,11 @@ Image.prototype.render = function (indent = 0) {
   image.width(this.width());
   
   /** Add image class for sizing */
-  image.addClass(sizeClass.replace(`t-flex`, `t-image`));
+  image.addClass(sizeClass.replace(`flex`, `width`));
   
   /** If we're to apply a shadow, add image shadow class */
   if ( this.shadow() )
-    image.addClass(`t-image-shadow`);
+    image.addClass(`image-shadow`);
   
   /** Append image to wrapper */
   wrapper.append(image);
@@ -73,4 +73,5 @@ Image.prototype.render = function (indent = 0) {
 };
 
 /** Export class */
+module.exports.configImage = configImage;
 module.exports.Image = Image;

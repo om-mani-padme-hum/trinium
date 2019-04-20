@@ -3,11 +3,11 @@ const ezhtml = require(`ezhtml`);
 const ezobjects = require(`ezobjects`);
 
 /** Require local modules */
-const validation = require(`./validation`);
+const validation = require(`../validation`);
 
 /** Configure class */
-const configBlank = {
-  className: `Blank`,
+const configStack = {
+  className: `Stack`,
   extends: ezhtml.Container,
   extendsConfig: ezhtml.configContainer,
   properties: [
@@ -17,10 +17,10 @@ const configBlank = {
 };
 
 /** Create class */
-ezobjects.createClass(configBlank);
+ezobjects.createClass(configStack);
 
 /** Add wrapper class helper */
-Blank.prototype.addWrapperClass = function (wrapperClass) {
+Stack.prototype.addWrapperClass = function (wrapperClass) {
   /** Append class to classes array */
   this.wrapperClasses().push(wrapperClass);
   
@@ -29,16 +29,17 @@ Blank.prototype.addWrapperClass = function (wrapperClass) {
 };
 
 /** Render card */
-Blank.prototype.render = function (indent = 0) {
+Stack.prototype.render = function (indent = 0) {
   /** Validate size */
   const sizeClass = validation.validateSize(this.size());
   
   /** Create wrapper div and transfer content */
-  const wrapper = new ezhtml.Div().addClass(sizeClass).addClass(this.wrapperClasses().join(` `)).content(this.content());
+  const wrapper = new ezhtml.Div().addClass(sizeClass).addClass(`flex-stack`).addClass(this.wrapperClasses().join(` `)).content(this.content());
   
   /** Render wrapper */
   return wrapper.render(indent);
 };
 
-/** Export class */
-module.exports.Blank = Blank;
+/** Export class and class */
+module.exports.Stack = Stack;
+module.exports.configStack = configStack;

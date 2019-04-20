@@ -4,7 +4,7 @@ const ezhtml = require(`ezhtml`);
 const ezobjects = require(`ezobjects`);
 
 /** Require local modules */
-const validation = require(`./validation`);
+const validation = require(`../validation`);
 
 /** Configure class */
 const configTable = {
@@ -49,7 +49,7 @@ Table.prototype.render = function (indent = 0) {
   table.style(this.style());
   table.title(this.title());
   
-  table.addClass(`t-table`);
+  table.addClass(`table`);
   
   /** Transfer table to wrapper */
   wrapper.append(table);
@@ -59,4 +59,5 @@ Table.prototype.render = function (indent = 0) {
 };
 
 /** Export class */
+module.exports.configTable = configTable;
 module.exports.Table = Table;

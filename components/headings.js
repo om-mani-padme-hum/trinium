@@ -3,7 +3,7 @@ const ezhtml = require(`ezhtml`);
 const ezobjects = require(`ezobjects`);
 
 /** Require local modules */
-const validation = require(`./validation`);
+const validation = require(`../validation`);
 
 for ( let i = 1; i <= 6; i++ ) {
   /** Configure class */
@@ -50,7 +50,7 @@ for ( let i = 1; i <= 6; i++ ) {
     heading.title(this.title());
     
     /** Add trinium heading class */
-    heading.addClass(`t-h${i}`);
+    heading.addClass(`h${i}`);
 
     /** Append heading to wrapper */
     wrapper.append(heading);
@@ -60,5 +60,6 @@ for ( let i = 1; i <= 6; i++ ) {
   };
 
   /** Export class */
+  module.exports[`configH${i}`] = configHeading;
   module.exports[`H${i}`] = global[`H${i}`];
 }

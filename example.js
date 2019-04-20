@@ -155,7 +155,7 @@ app.get(`/`, (req, res, next) => {
   const stack = p.stack().size(`tiny`);
   
   /** Append 100% wide H5 heading component to the stack with bottom padding removed byway of a helper class */
-  stack.append(p.h5(false).size(`100`).addWrapperClass(`pb-0`).text(`Miss Molly at Age 2ish`));
+  stack.append(p.h5(false).size(`100`).addWrapperClass(`pb-0`).text(`Miss Molly - Age 2ish`));
   
   /** Append 100% wide image component to the stack with shadow applied */
   stack.append(p.image(false).size(`100`).src(`/images/example.jpg`).shadow(true));

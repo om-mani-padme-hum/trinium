@@ -1,6 +1,7 @@
 @import 'backgrounds';
 @import 'cards';
 @import 'ezforms';
+@import 'fill';
 @import 'flex';
 @import 'headings';
 @import 'images';
@@ -20,7 +21,8 @@ body, body * {
 }
 
 p {
-  margin: 7px;
+  margin-top: 7px;
+  margin-bottom: 7px;
   text-align: justify;
   text-indent: 15px;
 }

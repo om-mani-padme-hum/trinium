@@ -1,4 +1,4 @@
-# Trinium v0.4.4
+# Trinium v0.4.5
 
 ## Status
 
@@ -264,156 +264,156 @@ Our tables are implemented using the EZ Tables library which provides a simple i
 
 ## Helper Classes
 
-#### Background Colors
+#### Background, Fill, and Text Colors
 
-* bg-alice-blue - #F0F8FF
-* bg-antique-white - #FAEBD7
-* bg-aqua - #00FFFF
-* bg-aquamarine - #7FFFD4
-* bg-azure - #F0FFFF
-* bg-beige - #F5F5DC
-* bg-bisque - #FFE4C4
-* bg-black - #000000
-* bg-blanched-almond - #FFEBCD
-* bg-blue - #0000FF
-* bg-blue-violet - #8A2BE2
-* bg-brown - #A52A2A
-* bg-burly-wood - #DEB887
-* bg-cadet-blue - #5F9EA0
-* bg-chartreuse - #7FFF00
-* bg-chocolate - #D2691E
-* bg-coral - #FF7F50
-* bg-cornflower-blue - #6495ED
-* bg-cornsilk - #FFF8DC
-* bg-crimson - #DC143C
-* bg-cyan - #00FFFF
-* bg-dark-blue - #00008B
-* bg-dark-cyan - #008B8B
-* bg-dark-golden-rod - #B8860B
-* bg-dark-gray - #A9A9A9
-* bg-dark-grey - #A9A9A9
-* bg-dark-green - #006400
-* bg-dark-khaki - #BDB76B
-* bg-dark-magenta - #8B008B
-* bg-dark-olive-green - #556B2F
-* bg-dark-orange - #FF8C00
-* bg-dark-orchid - #9932CC
-* bg-dark-red - #8B0000
-* bg-dark-salmon - #E9967A
-* bg-dark-sea-green - #8FBC8F
-* bg-dark-slate-blue - #483D8B
-* bg-dark-slate-gray - #2F4F4F
-* bg-dark-slate-grey - #2F4F4F
-* bg-dark-turquoise - #00CED1
-* bg-dark-violet - #9400D3
-* bg-deep-pink - #FF1493
-* bg-deep-sky-blue - #00BFFF
-* bg-dim-gray - #696969
-* bg-dim-grey - #696969
-* bg-dodger-blue - #1E90FF
-* bg-fire-brick - #B22222
-* bg-floral-white - #FFFAF0
-* bg-forest-green - #228B22
-* bg-fuchsia - #FF00FF
-* bg-gainsboro - #DCDCDC
-* bg-ghost-white - #F8F8FF
-* bg-gold - #FFD700
-* bg-golden-rod - #DAA520
-* bg-gray - #808080
-* bg-grey - #808080
-* bg-green - #008000
-* bg-green-yellow - #ADFF2F
-* bg-honey-dew - #F0FFF0
-* bg-hot-pink - #FF69B4
-* bg-indian-red - #CD5C5C
-* bg-indigo - #4B0082
-* bg-ivory - #FFFFF0
-* bg-khaki - #F0E68C
-* bg-lavender - #E6E6FA
-* bg-lavender-blush - #FFF0F5
-* bg-lawn-green - #7CFC00
-* bg-lemon-chiffon - #FFFACD
-* bg-light-blue - #ADD8E6
-* bg-light-coral - #F08080
-* bg-light-cyan - #E0FFFF
-* bg-light-golden-rod-yellow - #FAFAD2
-* bg-light-gray - #D3D3D3
-* bg-light-grey - #D3D3D3
-* bg-light-green - #90EE90
-* bg-light-pink - #FFB6C1
-* bg-light-salmon - #FFA07A
-* bg-light-sea-green - #20B2AA
-* bg-light-sky-blue - #87CEFA
-* bg-light-slate-gray - #778899
-* bg-light-slate-grey - #778899
-* bg-light-steel-blue - #B0C4DE
-* bg-light-yellow - #FFFFE0
-* bg-lime - #00FF00
-* bg-lime-green - #32CD32
-* bg-linen - #FAF0E6
-* bg-magenta - #FF00FF
-* bg-maroon - #800000
-* bg-medium-aqua-marine - #66CDAA
-* bg-medium-blue - #0000CD
-* bg-medium-orchid - #BA55D3
-* bg-medium-purple - #9370DB
-* bg-medium-sea-green - #3CB371
-* bg-medium-slate-blue - #7B68EE
-* bg-medium-spring-green - #00FA9A
-* bg-medium-turquoise - #48D1CC
-* bg-medium-violet-red - #C71585
-* bg-midnight-blue - #191970
-* bg-mint-cream - #F5FFFA
-* bg-misty-rose - #FFE4E1
-* bg-moccasin - #FFE4B5
-* bg-navajo-white - #FFDEAD
-* bg-navy - #000080
-* bg-old-lace - #FDF5E6
-* bg-olive - #808000
-* bg-olive-drab - #6B8E23
-* bg-orange - #FFA500
-* bg-orange-red - #FF4500
-* bg-orchid - #DA70D6
-* bg-pale-golden-rod - #EEE8AA
-* bg-pale-green - #98FB98
-* bg-pale-turquoise - #AFEEEE
-* bg-pale-violet-red - #DB7093
-* bg-papaya-whip - #FFEFD5
-* bg-peach-puff - #FFDAB9
-* bg-peru - #CD853F
-* bg-pink - #FFC0CB
-* bg-plum - #DDA0DD
-* bg-powder-blue - #B0E0E6
-* bg-purple - #800080
-* bg-rebecca-purple - #663399
-* bg-red - #FF0000
-* bg-rosy-brown - #BC8F8F
-* bg-royal-blue - #4169E1
-* bg-saddle-brown - #8B4513
-* bg-salmon - #FA8072
-* bg-sandy-brown - #F4A460
-* bg-sea-green - #2E8B57
-* bg-sea-shell - #FFF5EE
-* bg-sienna - #A0522D
-* bg-silver - #C0C0C0
-* bg-sky-blue - #87CEEB
-* bg-slate-blue - #6A5ACD
-* bg-slate-gray - #708090
-* bg-slate-grey - #708090
-* bg-snow - #FFFAFA
-* bg-spring-green - #00FF7F
-* bg-steel-blue - #4682B4
-* bg-tan - #D2B48C
-* bg-teal - #008080
-* bg-thistle - #D8BFD8
-* bg-tomato - #FF6347
-* bg-turquoise - #40E0D0
-* bg-violet - #EE82EE
-* bg-wheat - #F5DEB3
-* bg-white - #FFFFFF
-* bg-white-smoke - #F5F5F5
-* bg-yellow - #FFFF00
-* bg-yellow-green - #9ACD32
+* bg-alice-blue, fill-alice-blue, text-alice-blue - #F0F8FF
+* bg-antique-white, fill-antique-white, text-antique-white - #FAEBD7
+* bg-aqua, fill-aqua, text-aqua - #00FFFF
+* bg-aquamarine, fill-aquamarine, text-aquamarine - #7FFFD4
+* bg-azure, fill-azure, text-azure - #F0FFFF
+* bg-beige, fill-beige, text-beige - #F5F5DC
+* bg-bisque, fill-bisque, text-bisque - #FFE4C4
+* bg-black, fill-black, text-black - #000000
+* bg-blanched-almond, fill-blanched-almond, text-blanched-almond - #FFEBCD
+* bg-blue, fill-blue, text-blue - #0000FF
+* bg-blue-violet, fill-blue-violet, text-blue-violet - #8A2BE2
+* bg-brown, fill-brown, text-brown - #A52A2A
+* bg-burly-wood, fill-burly-wood, text-burly-wood - #DEB887
+* bg-cadet-blue, fill-cadet-blue, text-cadet-blue - #5F9EA0
+* bg-chartreuse, fill-chartreuse, text-chartreuse - #7FFF00
+* bg-chocolate, fill-chocolate, text-chocolate - #D2691E
+* bg-coral, fill-coral, text-coral - #FF7F50
+* bg-cornflower-blue, fill-cornflower-blue, text-cornflower-blue - #6495ED
+* bg-cornsilk, fill-cornsilk, text-cornsilk - #FFF8DC
+* bg-crimson, fill-crimson, text-crimson - #DC143C
+* bg-cyan, fill-cyan, text-cyan - #00FFFF
+* bg-dark-blue, fill-dark-blue, text-dark-blue - #00008B
+* bg-dark-cyan, fill-dark-cyan, text-dark-cyan - #008B8B
+* bg-dark-golden-rod, fill-dark-golden-rod, text-dark-golden-rod - #B8860B
+* bg-dark-gray, fill-dark-gray, text-dark-gray - #A9A9A9
+* bg-dark-grey, fill-dark-grey, text-dark-grey - #A9A9A9
+* bg-dark-green, fill-dark-green, text-dark-green - #006400
+* bg-dark-khaki, fill-dark-khaki, text-dark-khaki - #BDB76B
+* bg-dark-magenta, fill-dark-magenta, text-dark-magenta - #8B008B
+* bg-dark-olive-green, fill-dark-olive-green, text-dark-olive-green - #556B2F
+* bg-dark-orange, fill-dark-orange, text-dark-orange - #FF8C00
+* bg-dark-orchid, fill-dark-orchid, text-dark-orchid - #9932CC
+* bg-dark-red, fill-dark-red, text-dark-red - #8B0000
+* bg-dark-salmon, fill-dark-salmon, text-dark-salmon - #E9967A
+* bg-dark-sea-green, fill-dark-sea-green, text-dark-sea-green - #8FBC8F
+* bg-dark-slate-blue, fill-dark-slate-blue, text-dark-slate-blue - #483D8B
+* bg-dark-slate-gray, fill-dark-slate-gray, text-dark-slate-gray - #2F4F4F
+* bg-dark-slate-grey, fill-dark-slate-grey, text-dark-slate-grey - #2F4F4F
+* bg-dark-turquoise, fill-dark-turquoise, text-dark-turquoise - #00CED1
+* bg-dark-violet, fill-dark-violet, text-dark-violet - #9400D3
+* bg-deep-pink, fill-deep-pink, text-deep-pink - #FF1493
+* bg-deep-sky-blue, fill-deep-sky-blue, text-deep-sky-blue - #00BFFF
+* bg-dim-gray, fill-dim-gray, text-dim-gray - #696969
+* bg-dim-grey, fill-dim-grey, text-dim-grey - #696969
+* bg-dodger-blue, fill-dodger-blue, text-dodger-blue - #1E90FF
+* bg-fire-brick, fill-fire-brick, text-fire-brick - #B22222
+* bg-floral-white, fill-floral-white, text-floral-white - #FFFAF0
+* bg-forest-green, fill-forest-green, text-forest-green - #228B22
+* bg-fuchsia, fill-fuchsia, text-fuchsia - #FF00FF
+* bg-gainsboro, fill-gainsboro, text-gainsboro - #DCDCDC
+* bg-ghost-white, fill-ghost-white, text-ghost-white - #F8F8FF
+* bg-gold, fill-gold, text-gold - #FFD700
+* bg-golden-rod, fill-golden-rod, text-golden-rod - #DAA520
+* bg-gray, fill-gray, text-gray - #808080
+* bg-grey, fill-grey, text-grey - #808080
+* bg-green, fill-green, text-green - #008000
+* bg-green-yellow, fill-green-yellow, text-green-yellow - #ADFF2F
+* bg-honey-dew, fill-honey-dew, text-honey-dew - #F0FFF0
+* bg-hot-pink, fill-hot-pink, text-hot-pink - #FF69B4
+* bg-indian-red, fill-indian-red, text-indian-red - #CD5C5C
+* bg-indigo, fill-indigo, text-indigo - #4B0082
+* bg-ivory, fill-ivory, text-ivory - #FFFFF0
+* bg-khaki, fill-khaki, text-khaki - #F0E68C
+* bg-lavender, fill-lavender, text-lavender - #E6E6FA
+* bg-lavender-blush, fill-lavender-blush, text-lavender-blush - #FFF0F5
+* bg-lawn-green, fill-lawn-green, text-lawn-green - #7CFC00
+* bg-lemon-chiffon, fill-lemon-chiffon, text-lemon-chiffon - #FFFACD
+* bg-light-blue, fill-light-blue, text-light-blue - #ADD8E6
+* bg-light-coral, fill-light-coral, text-light-coral - #F08080
+* bg-light-cyan, fill-light-cyan, text-light-cyan - #E0FFFF
+* bg-light-golden-rod-yellow, fill-light-golden-rod-yellow, text-light-golden-rod-yellow - #FAFAD2
+* bg-light-gray, fill-light-gray, text-light-gray - #D3D3D3
+* bg-light-grey, fill-light-grey, text-light-grey - #D3D3D3
+* bg-light-green, fill-light-green, text-light-green - #90EE90
+* bg-light-pink, fill-light-pink, text-light-pink - #FFB6C1
+* bg-light-salmon, fill-light-salmon, text-light-salmon - #FFA07A
+* bg-light-sea-green, fill-light-sea-green, text-light-sea-green - #20B2AA
+* bg-light-sky-blue, fill-light-sky-blue, text-light-sky-blue - #87CEFA
+* bg-light-slate-gray, fill-light-slate-gray, text-light-slate-gray - #778899
+* bg-light-slate-grey, fill-light-slate-grey, text-light-slate-grey - #778899
+* bg-light-steel-blue, fill-light-steel-blue, text-light-steel-blue - #B0C4DE
+* bg-light-yellow, fill-light-yellow, text-light-yellow - #FFFFE0
+* bg-lime, fill-lime, text-lime - #00FF00
+* bg-lime-green, fill-lime-green, text-lime-green - #32CD32
+* bg-linen, fill-linen, text-linen - #FAF0E6
+* bg-magenta, fill-magenta, text-magenta - #FF00FF
+* bg-maroon, fill-maroon, text-maroon - #800000
+* bg-medium-aqua-marine, fill-medium-aqua-marine, text-medium-aqua-marine - #66CDAA
+* bg-medium-blue, fill-medium-blue, text-medium-blue - #0000CD
+* bg-medium-orchid, fill-medium-orchid, text-medium-orchid - #BA55D3
+* bg-medium-purple, fill-medium-purple, text-medium-purple - #9370DB
+* bg-medium-sea-green, fill-medium-sea-green, text-medium-sea-green - #3CB371
+* bg-medium-slate-blue, fill-medium-slate-blue, text-medium-slate-blue - #7B68EE
+* bg-medium-spring-green, fill-medium-spring-green, text-medium-spring-green - #00FA9A
+* bg-medium-turquoise, fill-medium-turquoise, text-medium-turquoise - #48D1CC
+* bg-medium-violet-red, fill-medium-violet-red, text-medium-violet-red - #C71585
+* bg-midnight-blue, fill-midnight-blue, text-midnight-blue - #191970
+* bg-mint-cream, fill-mint-cream, text-mint-cream - #F5FFFA
+* bg-misty-rose, fill-misty-rose, text-misty-rose - #FFE4E1
+* bg-moccasin, fill-moccasin, text-moccasin - #FFE4B5
+* bg-navajo-white, fill-navajo-white, text-navajo-white - #FFDEAD
+* bg-navy, fill-navy, text-navy - #000080
+* bg-old-lace, fill-old-lace, text-old-lace - #FDF5E6
+* bg-olive, fill-olive, text-olive - #808000
+* bg-olive-drab, fill-olive-drab, text-olive-drab - #6B8E23
+* bg-orange, fill-orange, text-orange - #FFA500
+* bg-orange-red, fill-orange-red, text-orange-red - #FF4500
+* bg-orchid, fill-orchid, text-orchid - #DA70D6
+* bg-pale-golden-rod, fill-pale-golden-rod, text-pale-golden-rod - #EEE8AA
+* bg-pale-green, fill-pale-green, text-pale-green - #98FB98
+* bg-pale-turquoise, fill-pale-turquoise, text-pale-turquoise - #AFEEEE
+* bg-pale-violet-red, fill-pale-violet-red, text-pale-violet-red - #DB7093
+* bg-papaya-whip, fill-papaya-whip, text-papaya-whip - #FFEFD5
+* bg-peach-puff, fill-peach-puff, text-peach-puff - #FFDAB9
+* bg-peru, fill-peru, text-peru - #CD853F
+* bg-pink, fill-pink, text-pink - #FFC0CB
+* bg-plum, fill-plum, text-plum - #DDA0DD
+* bg-powder-blue, fill-powder-blue, text-powder-blue - #B0E0E6
+* bg-purple, fill-purple, text-purple - #800080
+* bg-rebecca-purple, fill-rebecca-purple, text-rebecca-purple - #663399
+* bg-red, fill-red, text-red - #FF0000
+* bg-rosy-brown, fill-rosy-brown, text-rosy-brown - #BC8F8F
+* bg-royal-blue, fill-royal-blue, text-royal-blue - #4169E1
+* bg-saddle-brown, fill-saddle-brown, text-saddle-brown - #8B4513
+* bg-salmon, fill-salmon, text-salmon - #FA8072
+* bg-sandy-brown, fill-sandy-brown, text-sandy-brown - #F4A460
+* bg-sea-green, fill-sea-green, text-sea-green - #2E8B57
+* bg-sea-shell, fill-sea-shell, text-sea-shell - #FFF5EE
+* bg-sienna, fill-sienna, text-sienna - #A0522D
+* bg-silver, fill-silver, text-silver - #C0C0C0
+* bg-sky-blue, fill-sky-blue, text-sky-blue - #87CEEB
+* bg-slate-blue, fill-slate-blue, text-slate-blue - #6A5ACD
+* bg-slate-gray, fill-slate-gray, text-slate-gray - #708090
+* bg-slate-grey, fill-slate-grey, text-slate-grey - #708090
+* bg-snow, fill-snow, text-snow - #FFFAFA
+* bg-spring-green, fill-spring-green, text-spring-green - #00FF7F
+* bg-steel-blue, fill-steel-blue, text-steel-blue - #4682B4
+* bg-tan, fill-tan, text-tan - #D2B48C
+* bg-teal, fill-teal, text-teal - #008080
+* bg-thistle, fill-thistle, text-thistle - #D8BFD8
+* bg-tomato, fill-tomato, text-tomato - #FF6347
+* bg-turquoise, fill-turquoise, text-turquoise - #40E0D0
+* bg-violet, fill-violet, text-violet - #EE82EE
+* bg-wheat, fill-wheat, text-wheat - #F5DEB3
+* bg-white, fill-white, text-white - #FFFFFF
+* bg-white-smoke, fill-white-smoke, text-white-smoke - #F5F5F5
+* bg-yellow, fill-yellow, text-yellow - #FFFF00
+* bg-yellow-green, fill-yellow-green, text-yellow-green - #9ACD32
 
 #### Image Shadow Classes
 
@@ -538,157 +538,6 @@ Our tables are implemented using the EZ Tables library which provides a simple i
 * text-left - Align text left
 * text-center - Align text center
 * text-right - Align text right
-
-#### Text Colors
-
-* text-alice-blue - #F0F8FF
-* text-antique-white - #FAEBD7
-* text-aqua - #00FFFF
-* text-aquamarine - #7FFFD4
-* text-azure - #F0FFFF
-* text-beige - #F5F5DC
-* text-bisque - #FFE4C4
-* text-black - #000000
-* text-blanched-almond - #FFEBCD
-* text-blue - #0000FF
-* text-blue-violet - #8A2BE2
-* text-brown - #A52A2A
-* text-burly-wood - #DEB887
-* text-cadet-blue - #5F9EA0
-* text-chartreuse - #7FFF00
-* text-chocolate - #D2691E
-* text-coral - #FF7F50
-* text-cornflower-blue - #6495ED
-* text-cornsilk - #FFF8DC
-* text-crimson - #DC143C
-* text-cyan - #00FFFF
-* text-dark-blue - #00008B
-* text-dark-cyan - #008B8B
-* text-dark-golden-rod - #B8860B
-* text-dark-gray - #A9A9A9
-* text-dark-grey - #A9A9A9
-* text-dark-green - #006400
-* text-dark-khaki - #BDB76B
-* text-dark-magenta - #8B008B
-* text-dark-olive-green - #556B2F
-* text-dark-orange - #FF8C00
-* text-dark-orchid - #9932CC
-* text-dark-red - #8B0000
-* text-dark-salmon - #E9967A
-* text-dark-sea-green - #8FBC8F
-* text-dark-slate-blue - #483D8B
-* text-dark-slate-gray - #2F4F4F
-* text-dark-slate-grey - #2F4F4F
-* text-dark-turquoise - #00CED1
-* text-dark-violet - #9400D3
-* text-deep-pink - #FF1493
-* text-deep-sky-blue - #00BFFF
-* text-dim-gray - #696969
-* text-dim-grey - #696969
-* text-dodger-blue - #1E90FF
-* text-fire-brick - #B22222
-* text-floral-white - #FFFAF0
-* text-forest-green - #228B22
-* text-fuchsia - #FF00FF
-* text-gainsboro - #DCDCDC
-* text-ghost-white - #F8F8FF
-* text-gold - #FFD700
-* text-golden-rod - #DAA520
-* text-gray - #808080
-* text-grey - #808080
-* text-green - #008000
-* text-green-yellow - #ADFF2F
-* text-honey-dew - #F0FFF0
-* text-hot-pink - #FF69B4
-* text-indian-red - #CD5C5C
-* text-indigo - #4B0082
-* text-ivory - #FFFFF0
-* text-khaki - #F0E68C
-* text-lavender - #E6E6FA
-* text-lavender-blush - #FFF0F5
-* text-lawn-green - #7CFC00
-* text-lemon-chiffon - #FFFACD
-* text-light-blue - #ADD8E6
-* text-light-coral - #F08080
-* text-light-cyan - #E0FFFF
-* text-light-golden-rod-yellow - #FAFAD2
-* text-light-gray - #D3D3D3
-* text-light-grey - #D3D3D3
-* text-light-green - #90EE90
-* text-light-pink - #FFB6C1
-* text-light-salmon - #FFA07A
-* text-light-sea-green - #20B2AA
-* text-light-sky-blue - #87CEFA
-* text-light-slate-gray - #778899
-* text-light-slate-grey - #778899
-* text-light-steel-blue - #B0C4DE
-* text-light-yellow - #FFFFE0
-* text-lime - #00FF00
-* text-lime-green - #32CD32
-* text-linen - #FAF0E6
-* text-magenta - #FF00FF
-* text-maroon - #800000
-* text-medium-aqua-marine - #66CDAA
-* text-medium-blue - #0000CD
-* text-medium-orchid - #BA55D3
-* text-medium-purple - #9370DB
-* text-medium-sea-green - #3CB371
-* text-medium-slate-blue - #7B68EE
-* text-medium-spring-green - #00FA9A
-* text-medium-turquoise - #48D1CC
-* text-medium-violet-red - #C71585
-* text-midnight-blue - #191970
-* text-mint-cream - #F5FFFA
-* text-misty-rose - #FFE4E1
-* text-moccasin - #FFE4B5
-* text-navajo-white - #FFDEAD
-* text-navy - #000080
-* text-old-lace - #FDF5E6
-* text-olive - #808000
-* text-olive-drab - #6B8E23
-* text-orange - #FFA500
-* text-orange-red - #FF4500
-* text-orchid - #DA70D6
-* text-pale-golden-rod - #EEE8AA
-* text-pale-green - #98FB98
-* text-pale-turquoise - #AFEEEE
-* text-pale-violet-red - #DB7093
-* text-papaya-whip - #FFEFD5
-* text-peach-puff - #FFDAB9
-* text-peru - #CD853F
-* text-pink - #FFC0CB
-* text-plum - #DDA0DD
-* text-powder-blue - #B0E0E6
-* text-purple - #800080
-* text-rebecca-purple - #663399
-* text-red - #FF0000
-* text-rosy-brown - #BC8F8F
-* text-royal-blue - #4169E1
-* text-saddle-brown - #8B4513
-* text-salmon - #FA8072
-* text-sandy-brown - #F4A460
-* text-sea-green - #2E8B57
-* text-sea-shell - #FFF5EE
-* text-sienna - #A0522D
-* text-silver - #C0C0C0
-* text-sky-blue - #87CEEB
-* text-slate-blue - #6A5ACD
-* text-slate-gray - #708090
-* text-slate-grey - #708090
-* text-snow - #FFFAFA
-* text-spring-green - #00FF7F
-* text-steel-blue - #4682B4
-* text-tan - #D2B48C
-* text-teal - #008080
-* text-thistle - #D8BFD8
-* text-tomato - #FF6347
-* text-turquoise - #40E0D0
-* text-violet - #EE82EE
-* text-wheat - #F5DEB3
-* text-white - #FFFFFF
-* text-white-smoke - #F5F5F5
-* text-yellow - #FFFF00
-* text-yellow-green - #9ACD32
 
 #### Text Features
 

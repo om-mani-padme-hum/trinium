@@ -29,28 +29,33 @@ Form.prototype.addWrapperClass = function (wrapperClass) {
   return this;
 };
 
-/** Render card */
+/** Render form */
 Form.prototype.render = function (indent = 0) {
   /** Validate size and rank */
   const sizeClass = validation.validateSize(this.size());
   
   /** Create wrapper div */
-  const wrapper = new ezhtml.Div().addClass(sizeClass).addClass(this.wrapperClasses().join(` `));
+  const wrapper = new ezhtml.Div().addClass(sizeClass).addClass(`t-form-wrapper`).addClass(this.wrapperClasses().join(` `));
   
   /** Create EZ Form */
   const form = new ezforms.Form();
   
   /** Transfer properties */
+  form.attributes(this.attributes());
   form.acceptCharset(this.acceptCharset());
   form.action(this.action());
   form.autocomplete(this.autocomplete());
+  form.classes(this.classes());
+  form.content(this.content());
   form.enctype(this.enctype());
+  form.id(this.id());
+  form.lang(this.lang());
   form.method(this.method());
   form.name(this.name());
   form.novalidate(this.novalidate());
+  form.style(this.style());
   form.target(this.target());
-  
-  form.content(this.content());
+  form.title(this.title());
   
   /** Transfer form to wrapper */
   wrapper.append(form);

@@ -58,10 +58,10 @@ Card.prototype.render = function (indent = 0) {
   const wrapper = new ezhtml.Div().addClass(sizeClass).addClass(this.wrapperClasses().join(` `));
   
   /** Create card header and append header text */
-  const cardHeader = new ezhtml.Div().addClass(`trinium-card-header`).addClass(this.headerClasses().join(` `)).text(this.header());
+  const cardHeader = new ezhtml.Div().addClass(`t-card-header`).addClass(this.headerClasses().join(` `)).text(this.header());
   
   /** Create card body and transfer content */
-  const cardBody = new ezhtml.Div().addClass(`trinium-card-body`).addClass(this.bodyClasses().join(` `)).content(this.content());
+  const cardBody = new ezhtml.Div().addClass(`t-card-body`).addClass(this.bodyClasses().join(` `)).content(this.content());
   
   /** Append card header and body to wrapper */
   wrapper.append(cardHeader);

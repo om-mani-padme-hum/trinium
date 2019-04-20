@@ -2,12 +2,33 @@
 @import 'cards';
 @import 'ezforms';
 @import 'flex';
+@import 'forms';
 @import 'headings';
+@import 'images';
 @import 'margin';
 @import 'padding';
+@import 'tables';
 @import 'text';
+
+body {
+  font-size: 16px;
+}
 
 body, body * {
   box-sizing: border-box;  
-  font-family: Arial, sans-serif
+  font-family: Arial, sans-serif;
+}
+
+p {
+  margin: 7px;
+  text-align: justify;
+  text-indent: 15px;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
 }

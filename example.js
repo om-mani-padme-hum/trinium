@@ -98,8 +98,9 @@ app.get(`/`, (req, res, next) => {
   /** Create 16 column wide form heading (16 columns is also the default and represents 100% wide) */
   form.heading().cols(16).rank(1).text(`Join Our Community...`);
   
-  /** Create 13 column wide error-type alert */
-  form.alert().cols(13).colsBefore(1).type(`error`).strong(`Error!`).text(`Your password must contain at least one lowercase letter, one uppercase letter, and one number!`);
+  /** If required, create 13 column wide error-type alert */
+  if ( req.query.showPasswordCharactersError )
+    form.alert().cols(13).colsBefore(1).type(`error`).strong(`Error!`).text(`Your password must contain at least one lowercase letter, one uppercase letter, and one number!`);
   
   /** Create two required six column wide text inputs, separated by 2 space columns */
   form.text().cols(6).colsAfter(2).name(`firstName`).label(`First Name:`).required(true);

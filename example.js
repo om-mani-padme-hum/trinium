@@ -78,13 +78,13 @@ app.get(`/`, (req, res, next) => {
   p.css().push(`/css/trinium.css`);
   p.javascript().push(`/js/trinium.js`);
   
-  /** Create 100% wide heading component */
+  /** Create 100% wide H2 heading component */
   p.h2().size(`100`).text(`Welcome To Trinium...`);
   
   /** Create small card component with a white on steel blue header */
   const card = p.card().size(`small`).addHeaderClass(`bg-steel-blue text-white`).header(`A Variety of Components`);
   
-  /** Append three paragraphs tot he body of the card */
+  /** Append three paragraphs to the body of the card */
   card.append(new ezhtml.Paragraph().text(`Trinium comes with a number of built in components, some with APIs that help speed up the design process, such as this simple and easy to use card component with a white on blue header and rounded borders.  Card components have a wrapper that contains a header and a body.  The header is accessible by the .header() method, and everything else that's appended will end up in the body.`));
   card.append(new ezhtml.Paragraph().text(`Next, it's what we've all been waiting for: a simple JavaScript API for creating customized web forms, such as the account application form that you see on this page.  The forms have methods for adding headings, alerts, spaces, and buttons along with checkbox, color, date, datetime, email, file, hidden, month, multiselect, number, password, radio, range, select, tel, textarea, text, time, url, and week inputs.`));
   card.append(new ezhtml.Paragraph().text(`We certainly can't forget about tables like the one shown below.  Tables also have their own API and it's so simple I probably don't have to do anything except give you the names of the methods.  They are .head(), .body(), .footer(), .row(), .header(), and .data().  Each of these return the corresponding element from the <a href='http://github.com/om-mani-padme-hum/ezhtml'>EZ HTML</a> library.`));
@@ -95,29 +95,29 @@ app.get(`/`, (req, res, next) => {
   /** Set form action and method properties */
   form.action(`/`).method(`GET`);
   
-  /** Create 16 column wide form heading (16 columns is also the default and represents 100% wide */
+  /** Create 16 column wide form heading (16 columns is also the default and represents 100% wide) */
   form.heading().cols(16).rank(1).text(`Join Our Community...`);
   
-  /** Create 13 column wide alert */
+  /** Create 13 column wide error-type alert */
   form.alert().cols(13).colsBefore(1).type(`error`).strong(`Error!`).text(`Your password must contain at least one lowercase letter, one uppercase letter, and one number!`);
   
-  /** Create two six column wide text inputs, separated by 2 space columns */
+  /** Create two required six column wide text inputs, separated by 2 space columns */
   form.text().cols(6).colsAfter(2).name(`firstName`).label(`First Name:`).required(true);
   form.text().cols(6).name(`lastName`).label(`Last Name:`).required(true);
 
-  /** Create two seven column wide password inputs, separated by 1 space column */
+  /** Create two required seven column wide password inputs, separated by 1 space column */
   form.password().cols(7).colsAfter(1).name(`password`).label(`Choose Password:`).required(true);
   form.password().cols(7).name(`password2`).label(`Confirm Password:`).required(true);
   
-  /** Create eight column wide email input */
-  form.email().cols(8).name(`email`).label(`Email Address:`).pattern(`[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$`);
+  /** Create optional eight column wide email input */
+  form.email().cols(8).name(`email`).label(`Email Address:`);
   
   /** Create eight column wide horizontally arranged radio group input */
   form.radios().cols(8).name(`sex`).label(`Sex:`).align(`horizontal`);
   form.option().value(`female`).text(`Female`).selected(true);
   form.option().value(`male`).text(`Male`);
   
-  /** Create six column wide button spaced 5 space columns in with a white on steel blue appearance */
+  /** Create six column wide submit button spaced 5 space columns in with a white on steel blue appearance */
   form.button().addClass(`bg-steel-blue text-white`).cols(6).colsBefore(5).type(`submit`).text(`Create Account`);
   
   /** Create a tiny sized table */
@@ -143,7 +143,7 @@ app.get(`/`, (req, res, next) => {
     /** Create table row in table body */
     table.row();
     
-    /** Create table data cells with example data */
+    /** Create table data cells with example data and edit/delete buttons */
     table.data().text(`Row ${i} Data 1`);
     table.data().text(`Row ${i} Data 2`);
     table.data().style(`text-align: center;`).append(new ezhtml.Anchor().href(`edit?id=${i}`).text(octicons.pencil.toSVG({ width: 16 })));

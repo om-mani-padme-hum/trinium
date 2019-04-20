@@ -1,4 +1,4 @@
-# Trinium v0.4.5
+# Trinium v0.4.6
 
 ## Status
 
@@ -98,7 +98,7 @@ app.get(`/`, (req, res, next) => {
   const stack = p.stack().size(`tiny`);
   
   /** Append 100% wide H5 heading component to the stack with bottom padding removed byway of a helper class */
-  stack.append(p.h5(false).size(`100`).addWrapperClass(`pb-0`).text(`Miss Molly at Age 2ish`));
+  stack.append(p.h5(false).size(`100`).addWrapperClass(`pb-0`).text(`Miss Molly - Age 2ish`));
   
   /** Append 100% wide image component to the stack with shadow applied */
   stack.append(p.image(false).size(`100`).src(`/images/example.jpg`).shadow(true));
@@ -107,7 +107,7 @@ app.get(`/`, (req, res, next) => {
   const blank = p.blank().size(`small`).addWrapperClass(`fixed`);
   
   /** Append four paragraphs of text with example inline image, link, and special font feature */
-  blank.append(new ezhtml.Paragraph().text(`The picture you saw in the stack component with nested heading and image components was of my niece Molly when she was about two years old I would guess.  <img src='/images/example.jpg' class='float-right width-150px image-shadow-sm m-2'> She's always been a cutie so I figured she'd work well in the demo.`));
+  blank.append(new ezhtml.Paragraph().text(`The picture you saw in the stack component with nested heading and image components was of my niece Molly when she was about two years old I would guess.  <img src='/images/example.jpg' class='float-right width-150px image-shadow-tiny m-2'> She's always been a cutie so I figured she'd work well in the demo.`));
   blank.append(new ezhtml.Paragraph().text(`I'm including her again in this blank component that has had three paragraphs and her image appended to show how simple it is to get text and image content to flow together using simple classes like float-left and float-right.`));
   blank.append(new ezhtml.Paragraph().text(`You can also see that it's possible to just write HTML inline in the text for simple things like inline images, <a href='http://github.com/om-mani-padme-hum/trinium'>links</a>, <i>special font features</i>, and other traditional inter-paragraph content.`));
   blank.append(new ezhtml.Paragraph().text(`You heard me refer to the stack component with the nested heading and image components containing the larger image of my niece enjoying some pizza.  Stack components are extremely useful for combining multiple smaller components adjacent to larger components, or adding headings to components like tables, images, forms, etc.`));
@@ -202,7 +202,7 @@ Our tables are implemented using the EZ Tables library which provides a simple i
 
 * **Table.addWrapperClass(className)** - Add class to table wrapper
 * **Table.size(keyword)** - Set the size of the table using one of the size keywords
-* See the documentation for [EZ Tables](https://github.com/om-mani-padme-hun/eztables) for all other methods
+* See the documentation for [EZ Tables](https://github.com/om-mani-padme-hum/eztables) for all other methods
 
 ## Component Size Keywords
 

@@ -712,6 +712,450 @@ button[type=submit] {
 button[type=submit]:hover {
   background: rgba(68, 110, 155, 0.8); }
 
+.fill-alice-blue {
+  fill: #F0F8FF !important; }
+
+.fill-antique-white {
+  fill: #FAEBD7 !important; }
+
+.fill-aqua {
+  fill: #00FFFF !important; }
+
+.fill-aquamarine {
+  fill: #7FFFD4 !important; }
+
+.fill-azure {
+  fill: #F0FFFF !important; }
+
+.fill-beige {
+  fill: #F5F5DC !important; }
+
+.fill-bisque {
+  fill: #FFE4C4 !important; }
+
+.fill-black {
+  fill: #000000 !important; }
+
+.fill-blanched-almond {
+  fill: #FFEBCD !important; }
+
+.fill-blue {
+  fill: #0000FF !important; }
+
+.fill-blue-violet {
+  fill: #8A2BE2 !important; }
+
+.fill-brown {
+  fill: #A52A2A !important; }
+
+.fill-burly-wood {
+  fill: #DEB887 !important; }
+
+.fill-cadet-blue {
+  fill: #5F9EA0 !important; }
+
+.fill-chartreuse {
+  fill: #7FFF00 !important; }
+
+.fill-chocolate {
+  fill: #D2691E !important; }
+
+.fill-coral {
+  fill: #FF7F50 !important; }
+
+.fill-cornflower-blue {
+  fill: #6495ED !important; }
+
+.fill-cornsilk {
+  fill: #FFF8DC !important; }
+
+.fill-crimson {
+  fill: #DC143C !important; }
+
+.fill-cyan {
+  fill: #00FFFF !important; }
+
+.fill-dark-blue {
+  fill: #00008B !important; }
+
+.fill-dark-cyan {
+  fill: #008B8B !important; }
+
+.fill-dark-golden-rod {
+  fill: #B8860B !important; }
+
+.fill-dark-gray {
+  fill: #A9A9A9 !important; }
+
+.fill-dark-grey {
+  fill: #A9A9A9 !important; }
+
+.fill-dark-green {
+  fill: #006400 !important; }
+
+.fill-dark-khaki {
+  fill: #BDB76B !important; }
+
+.fill-dark-magenta {
+  fill: #8B008B !important; }
+
+.fill-dark-olive-green {
+  fill: #556B2F !important; }
+
+.fill-dark-orange {
+  fill: #FF8C00 !important; }
+
+.fill-dark-orchid {
+  fill: #9932CC !important; }
+
+.fill-dark-red {
+  fill: #8B0000 !important; }
+
+.fill-dark-salmon {
+  fill: #E9967A !important; }
+
+.fill-dark-sea-green {
+  fill: #8FBC8F !important; }
+
+.fill-dark-slate-blue {
+  fill: #483D8B !important; }
+
+.fill-dark-slate-gray {
+  fill: #2F4F4F !important; }
+
+.fill-dark-slate-grey {
+  fill: #2F4F4F !important; }
+
+.fill-dark-turquoise {
+  fill: #00CED1 !important; }
+
+.fill-dark-violet {
+  fill: #9400D3 !important; }
+
+.fill-deep-pink {
+  fill: #FF1493 !important; }
+
+.fill-deep-sky-blue {
+  fill: #00BFFF !important; }
+
+.fill-dim-gray {
+  fill: #696969 !important; }
+
+.fill-dim-grey {
+  fill: #696969 !important; }
+
+.fill-dodger-blue {
+  fill: #1E90FF !important; }
+
+.fill-fire-brick {
+  fill: #B22222 !important; }
+
+.fill-floral-white {
+  fill: #FFFAF0 !important; }
+
+.fill-forest-green {
+  fill: #228B22 !important; }
+
+.fill-fuchsia {
+  fill: #FF00FF !important; }
+
+.fill-gainsboro {
+  fill: #DCDCDC !important; }
+
+.fill-ghost-white {
+  fill: #F8F8FF !important; }
+
+.fill-gold {
+  fill: #FFD700 !important; }
+
+.fill-golden-rod {
+  fill: #DAA520 !important; }
+
+.fill-gray {
+  fill: #808080 !important; }
+
+.fill-grey {
+  fill: #808080 !important; }
+
+.fill-green {
+  fill: #008000 !important; }
+
+.fill-green-yellow {
+  fill: #ADFF2F !important; }
+
+.fill-honey-dew {
+  fill: #F0FFF0 !important; }
+
+.fill-hot-pink {
+  fill: #FF69B4 !important; }
+
+.fill-indian-red {
+  fill: #CD5C5C !important; }
+
+.fill-indigo {
+  fill: #4B0082 !important; }
+
+.fill-ivory {
+  fill: #FFFFF0 !important; }
+
+.fill-khaki {
+  fill: #F0E68C !important; }
+
+.fill-lavender {
+  fill: #E6E6FA !important; }
+
+.fill-lavender-blush {
+  fill: #FFF0F5 !important; }
+
+.fill-lawn-green {
+  fill: #7CFC00 !important; }
+
+.fill-lemon-chiffon {
+  fill: #FFFACD !important; }
+
+.fill-light-blue {
+  fill: #ADD8E6 !important; }
+
+.fill-light-coral {
+  fill: #F08080 !important; }
+
+.fill-light-cyan {
+  fill: #E0FFFF !important; }
+
+.fill-light-golden-rod-yellow {
+  fill: #FAFAD2 !important; }
+
+.fill-light-gray {
+  fill: #D3D3D3 !important; }
+
+.fill-light-grey {
+  fill: #D3D3D3 !important; }
+
+.fill-light-green {
+  fill: #90EE90 !important; }
+
+.fill-light-pink {
+  fill: #FFB6C1 !important; }
+
+.fill-light-salmon {
+  fill: #FFA07A !important; }
+
+.fill-light-sea-green {
+  fill: #20B2AA !important; }
+
+.fill-light-sky-blue {
+  fill: #87CEFA !important; }
+
+.fill-light-slate-gray {
+  fill: #778899 !important; }
+
+.fill-light-slate-grey {
+  fill: #778899 !important; }
+
+.fill-light-steel-blue {
+  fill: #B0C4DE !important; }
+
+.fill-light-yellow {
+  fill: #FFFFE0 !important; }
+
+.fill-lime {
+  fill: #00FF00 !important; }
+
+.fill-lime-green {
+  fill: #32CD32 !important; }
+
+.fill-linen {
+  fill: #FAF0E6 !important; }
+
+.fill-magenta {
+  fill: #FF00FF !important; }
+
+.fill-maroon {
+  fill: #800000 !important; }
+
+.fill-medium-aqua-marine {
+  fill: #66CDAA !important; }
+
+.fill-medium-blue {
+  fill: #0000CD !important; }
+
+.fill-medium-orchid {
+  fill: #BA55D3 !important; }
+
+.fill-medium-purple {
+  fill: #9370DB !important; }
+
+.fill-medium-sea-green {
+  fill: #3CB371 !important; }
+
+.fill-medium-slate-blue {
+  fill: #7B68EE !important; }
+
+.fill-medium-spring-green {
+  fill: #00FA9A !important; }
+
+.fill-medium-turquoise {
+  fill: #48D1CC !important; }
+
+.fill-medium-violet-red {
+  fill: #C71585 !important; }
+
+.fill-midnight-blue {
+  fill: #191970 !important; }
+
+.fill-mint-cream {
+  fill: #F5FFFA !important; }
+
+.fill-misty-rose {
+  fill: #FFE4E1 !important; }
+
+.fill-moccasin {
+  fill: #FFE4B5 !important; }
+
+.fill-navajo-white {
+  fill: #FFDEAD !important; }
+
+.fill-navy {
+  fill: #000080 !important; }
+
+.fill-old-lace {
+  fill: #FDF5E6 !important; }
+
+.fill-olive {
+  fill: #808000 !important; }
+
+.fill-olive-drab {
+  fill: #6B8E23 !important; }
+
+.fill-orange {
+  fill: #FFA500 !important; }
+
+.fill-orange-red {
+  fill: #FF4500 !important; }
+
+.fill-orchid {
+  fill: #DA70D6 !important; }
+
+.fill-pale-golden-rod {
+  fill: #EEE8AA !important; }
+
+.fill-pale-green {
+  fill: #98FB98 !important; }
+
+.fill-pale-turquoise {
+  fill: #AFEEEE !important; }
+
+.fill-pale-violet-red {
+  fill: #DB7093 !important; }
+
+.fill-papaya-whip {
+  fill: #FFEFD5 !important; }
+
+.fill-peach-puff {
+  fill: #FFDAB9 !important; }
+
+.fill-peru {
+  fill: #CD853F !important; }
+
+.fill-pink {
+  fill: #FFC0CB !important; }
+
+.fill-plum {
+  fill: #DDA0DD !important; }
+
+.fill-powder-blue {
+  fill: #B0E0E6 !important; }
+
+.fill-purple {
+  fill: #800080 !important; }
+
+.fill-rebecca-purple {
+  fill: #663399 !important; }
+
+.fill-red {
+  fill: #FF0000 !important; }
+
+.fill-rosy-brown {
+  fill: #BC8F8F !important; }
+
+.fill-royal-blue {
+  fill: #4169E1 !important; }
+
+.fill-saddle-brown {
+  fill: #8B4513 !important; }
+
+.fill-salmon {
+  fill: #FA8072 !important; }
+
+.fill-sandy-brown {
+  fill: #F4A460 !important; }
+
+.fill-sea-green {
+  fill: #2E8B57 !important; }
+
+.fill-sea-shell {
+  fill: #FFF5EE !important; }
+
+.fill-sienna {
+  fill: #A0522D !important; }
+
+.fill-silver {
+  fill: #C0C0C0 !important; }
+
+.fill-sky-blue {
+  fill: #87CEEB !important; }
+
+.fill-slate-blue {
+  fill: #6A5ACD !important; }
+
+.fill-slate-gray {
+  fill: #708090 !important; }
+
+.fill-slate-grey {
+  fill: #708090 !important; }
+
+.fill-snow {
+  fill: #FFFAFA !important; }
+
+.fill-spring-green {
+  fill: #00FF7F !important; }
+
+.fill-steel-blue {
+  fill: #4682B4 !important; }
+
+.fill-tan {
+  fill: #D2B48C !important; }
+
+.fill-teal {
+  fill: #008080 !important; }
+
+.fill-thistle {
+  fill: #D8BFD8 !important; }
+
+.fill-tomato {
+  fill: #FF6347 !important; }
+
+.fill-turquoise {
+  fill: #40E0D0 !important; }
+
+.fill-violet {
+  fill: #EE82EE !important; }
+
+.fill-wheat {
+  fill: #F5DEB3 !important; }
+
+.fill-white {
+  fill: #FFFFFF !important; }
+
+.fill-white-smoke {
+  fill: #F5F5F5 !important; }
+
+.fill-yellow {
+  fill: #FFFF00 !important; }
+
+.fill-yellow-green {
+  fill: #9ACD32 !important; }
+
 body, .flex-stack {
   display: flex;
   flex-direction: row;

@@ -1,14 +1,11 @@
-.table {
+table {
   width: 100%;
   border: 1px solid grey;
   border-collapse: collapse;
 }
 
-.table td, .table th {
+td, th {
   border: 1px solid grey;
   text-align: left;
-}
-
-.table td, .table th {
   padding: 5px;
 }

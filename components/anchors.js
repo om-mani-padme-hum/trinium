@@ -6,22 +6,21 @@ const ezobjects = require(`ezobjects`);
 const validation = require(`./validation`);
 
 /** Configure class */
-const configImage = {
-  className: `Image`,
-  extends: ezhtml.Image,
-  extendsConfig: ezhtml.configImage,
+const configAnchor = {
+  className: `Anchor`,
+  extends: ezhtml.Anchor,
+  extendsConfig: ezhtml.configAnchor,
   properties: [
-    { name: `shadow`, type: `boolean` },
     { name: `width`, type: `string`, default: `100` },
     { name: `wrapperClasses`, type: `Array`, arrayOf: { type: `string` } }
   ]
 };
 
 /** Create class */
-ezobjects.createClass(configImage);
+ezobjects.createClass(configAnchor);
 
 /** Add wrapper class helper */
-Image.prototype.addWrapperClass = function (wrapperClass) {
+Anchor.prototype.addWrapperClass = function (wrapperClass) {
   /** Get array of non-empty class names to be added */
   const classes = wrapperClass.trim().split(` `).map(x => x.trim()).filter(x => x.length > 0);
 
@@ -37,7 +36,7 @@ Image.prototype.addWrapperClass = function (wrapperClass) {
 };
 
 /** Remove wrapper class helper */
-Image.prototype.removeWrapperClass = function (wrapperClass) {
+Anchor.prototype.removeWrapperClass = function (wrapperClass) {
   /** Get array of non-empty class names to be removed */
   const classes = wrapperClass.trim().split(` `).map(x => x.trim()).filter(x => x.length > 0);
 
@@ -53,47 +52,17 @@ Image.prototype.removeWrapperClass = function (wrapperClass) {
 };
 
 /** Render card */
-Image.prototype.render = function (indent = 0) {
+Anchor.prototype.render = function (indent = 0) {
   /** Validate width */
   const widthClass = validation.validateWidth(this.width());
   
   /** Create wrapper div and transfer content */
-  const wrapper = new ezhtml.Div().addClass(widthClass).addClass(`image-wrapper`).addClass(this.wrapperClasses().join(` `));
-  
-  /** Create image */
-  const image = new ezhtml.Image();
-
-  /** Transfer properties */
-  image.alt(this.alt());
-  image.attributes(this.attributes());
-  image.classes(this.classes());
-  image.crossorigin(this.crossorigin());
-  image.height(this.height());
-  image.id(this.id());
-  image.ismap(this.ismap());
-  image.lang(this.lang());
-  image.longdesc(this.longdesc());
-  image.sizes(this.sizes());
-  image.src(this.src());
-  image.srcset(this.srcset());
-  image.style(this.style());
-  image.title(this.title());
-  image.usemap(this.usemap());
-  
-  /** Add image class for sizing */
-  image.addClass(widthClass.replace(`flex`, `width`));
-  
-  /** If we're to apply a shadow, add image shadow class */
-  if ( this.shadow() )
-    image.addClass(`image-shadow`);
-  
-  /** Append image to wrapper */
-  wrapper.append(image);
+  const wrapper = new ezhtml.Anchor().addClass(widthClass).addClass(this.wrapperClasses().join(` `)).content(this.content());
   
   /** Render wrapper */
   return wrapper.render(indent);
 };
 
-/** Export class */
-module.exports.configImage = configImage;
-module.exports.Image = Image;
+/** Export class and class */
+module.exports.Anchor = Anchor;
+module.exports.configAnchor = configAnchor;

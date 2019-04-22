@@ -9,6 +9,7 @@ const blanks = require(`./blanks`);
 const buttons = require(`./buttons`);
 const cards = require(`./cards`);
 const checkboxGroups = require(`./checkbox-groups`);
+const forms = require(`./forms`);
 const headings = require(`./headings`);
 const images = require(`./images`);
 const inputs = require(`./inputs`);
@@ -22,21 +23,22 @@ const unorderedLists = require(`./unordered-lists`);
 const validation = require(`./validation`);
 
 /** Configure class */
-const configForm = {
-  className: `Form`,
-  extends: ezhtml.Form,
-  extendsConfig: ezhtml.configForm,
+const configContainer = {
+  className: `Container`,
+  extends: ezhtml.Container,
+  extendsConfig: ezhtml.configContainer,
   properties: [
+    { name: `parent`, instanceOf: `Child` },
     { name: `width`, type: `string`, default: `100` },
     { name: `wrapperClasses`, type: `Array`, arrayOf: { type: `string` } }
   ]
 };
 
 /** Create class */
-ezobjects.createClass(configForm);
+ezobjects.createClass(configContainer);
 
 /** Add wrapper class helper */
-Form.prototype.addWrapperClass = function (wrapperClass) {
+Container.prototype.addWrapperClass = function (wrapperClass) {
   /** Get array of non-empty class names to be added */
   const classes = wrapperClass.trim().split(` `).map(x => x.trim()).filter(x => x.length > 0);
 
@@ -52,11 +54,11 @@ Form.prototype.addWrapperClass = function (wrapperClass) {
 };
 
 /** Create, if desired append, and return new alert component */
-Form.prototype.alert = function (append = true) {
+Container.prototype.alert = function (append = true) {
   /** Create alert */
   const alert = new alerts.Alert();
   
-  /** Append alert to form, if desired */
+  /** Append alert to container, if desired */
   if ( append )
     this.append(alert);
   
@@ -65,7 +67,7 @@ Form.prototype.alert = function (append = true) {
 };
 
 /** Create, if desired append, and return new anchor component */
-Form.prototype.anchor = function (append = true, wrapper = true) {
+Container.prototype.anchor = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain anchor */
   if ( !wrapper )
     return new ezhtml.Anchor();
@@ -73,7 +75,7 @@ Form.prototype.anchor = function (append = true, wrapper = true) {
   /** Create anchor */
   const anchor = new anchors.Anchor();
   
-  /** Append anchor to form, if desired */
+  /** Append anchor to container, if desired */
   if ( append )
     this.append(anchor);
   
@@ -82,11 +84,11 @@ Form.prototype.anchor = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new blank component */
-Form.prototype.blank = function (append = true) {
+Container.prototype.blank = function (append = true) {
   /** Create blank */
   const blank = new blanks.Blank();
   
-  /** Append blank to form, if desired */
+  /** Append blank to container, if desired */
   if ( append )
     this.append(blank);
   
@@ -95,7 +97,7 @@ Form.prototype.blank = function (append = true) {
 };
 
 /** Create, if desired append, and return new button component */
-Form.prototype.button = function (append = true, wrapper = true) {
+Container.prototype.button = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain button */
   if ( !wrapper )
     return new ezhtml.Button();
@@ -103,7 +105,7 @@ Form.prototype.button = function (append = true, wrapper = true) {
   /** Create button */
   const button = new buttons.Button();
   
-  /** Append button to form, if desired */
+  /** Append button to container, if desired */
   if ( append )
     this.append(button);
   
@@ -112,11 +114,11 @@ Form.prototype.button = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new card component */
-Form.prototype.card = function (append = true) {
+Container.prototype.card = function (append = true) {
   /** Create card */
-  const card = new components.Card();
+  const card = new cards.Card();
   
-  /** Append card to form, if desired */
+  /** Append card to container, if desired */
   if ( append )
     this.append(card);
   
@@ -125,11 +127,11 @@ Form.prototype.card = function (append = true) {
 };
 
 /** Create, if desired append, and return new checkbox group component */
-Form.prototype.checkboxes = function (append = true) {
+Container.prototype.checkboxes = function (append = true) {
   /** Create checkbox group */
   const checkboxes = new checkboxGroups.CheckboxGroup();
   
-  /** Append checkbox group to form, if desired */
+  /** Append checkbox group to container, if desired */
   if ( append )
     this.append(checkboxes);
   
@@ -138,7 +140,7 @@ Form.prototype.checkboxes = function (append = true) {
 };
 
 /** Create, if desired append, and return new color input component */
-Form.prototype.color = function (append = true, wrapper = true) {
+Container.prototype.color = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of color type */
   if ( !wrapper )
     return new ezhtml.Input().type(`color`);
@@ -146,7 +148,7 @@ Form.prototype.color = function (append = true, wrapper = true) {
   /** Create input of color type */
   const input = new inputs.Input().type(`color`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -155,7 +157,7 @@ Form.prototype.color = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new date input component */
-Form.prototype.date = function (append = true, wrapper = true) {
+Container.prototype.date = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of date type */
   if ( !wrapper )
     return new ezhtml.Input().type(`date`);
@@ -163,7 +165,7 @@ Form.prototype.date = function (append = true, wrapper = true) {
   /** Create input of date type */
   const input = new inputs.Input().type(`date`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -172,7 +174,7 @@ Form.prototype.date = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new datetime input component */
-Form.prototype.datetime = function (append = true, wrapper = true) {
+Container.prototype.datetime = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of datetime type */
   if ( !wrapper )
     return new ezhtml.Input().type(`datetime-local`);
@@ -180,7 +182,7 @@ Form.prototype.datetime = function (append = true, wrapper = true) {
   /** Create input of datetime type */
   const input = new inputs.Input().type(`datetime-local`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -189,7 +191,7 @@ Form.prototype.datetime = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new email input component */
-Form.prototype.email = function (append = true, wrapper = true) {
+Container.prototype.email = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of email type */
   if ( !wrapper )
     return new ezhtml.Input().type(`email`);
@@ -197,7 +199,7 @@ Form.prototype.email = function (append = true, wrapper = true) {
   /** Create input of email type */
   const input = new inputs.Input().type(`email`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -206,7 +208,7 @@ Form.prototype.email = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new file input component */
-Form.prototype.file = function (append = true, wrapper = true) {
+Container.prototype.file = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of file type */
   if ( !wrapper )
     return new ezhtml.Input().type(`file`);
@@ -214,7 +216,7 @@ Form.prototype.file = function (append = true, wrapper = true) {
   /** Create input of file type */
   const input = new inputs.Input().type(`file`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -222,9 +224,26 @@ Form.prototype.file = function (append = true, wrapper = true) {
   return input;
 };
 
+/** Create, if desired append, and return new form component */
+Container.prototype.form = function (append = true, wrapper = true) {
+  /** If no wrapper is desired, return plain form */
+  if ( !wrapper )
+    return new ezhtml.Form();
+  
+  /** Create form */
+  const form = new forms.Form();
+  
+  /** Append form to container, if desired */
+  if ( append )
+    this.append(form);
+  
+  /** Return form for call chaining */
+  return form;
+};
+
 /** Loop from 1 to 6 to create heading methods... */
 for ( let i = 1; i <= 6; i++ ) {
-  Form.prototype[`h${i}`] = function (append = true, wrapper = true) {
+  Container.prototype[`h${i}`] = function (append = true, wrapper = true) {
     /** If no wrapper is desired, return plain heading */
     if ( !wrapper )
       return new ezhtml[`H${i}`]();
@@ -232,7 +251,7 @@ for ( let i = 1; i <= 6; i++ ) {
     /** Create heading */
     const heading = new headings[`H${i}`]();
 
-    /** Append heading to form, if desired */
+    /** Append heading to container, if desired */
     if ( append )
       this.append(heading);
 
@@ -242,7 +261,7 @@ for ( let i = 1; i <= 6; i++ ) {
 }
 
 /** Create, if desired append, and return new hidden input component */
-Form.prototype.hidden = function (append = true, wrapper = true) {
+Container.prototype.hidden = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of hidden type */
   if ( !wrapper )
     return new ezhtml.Input().type(`hidden`);
@@ -250,7 +269,7 @@ Form.prototype.hidden = function (append = true, wrapper = true) {
   /** Create input of hidden type */
   const input = new inputs.Input().type(`hidden`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -259,15 +278,15 @@ Form.prototype.hidden = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new image component */
-Form.prototype.image = function (append = true, wrapper = true) {
+Container.prototype.image = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain image */
   if ( !wrapper )
     return new ezhtml.Image();
   
   /** Create image */
-  const image = new components.Image();
+  const image = new images.Image();
   
-  /** Append image to form, if desired */
+  /** Append image to container, if desired */
   if ( append )
     this.append(image);
   
@@ -276,7 +295,7 @@ Form.prototype.image = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new month input component */
-Form.prototype.month = function (append = true, wrapper = true) {
+Container.prototype.month = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of month type */
   if ( !wrapper )
     return new ezhtml.Input().type(`month`);
@@ -284,7 +303,7 @@ Form.prototype.month = function (append = true, wrapper = true) {
   /** Create input of month type */
   const input = new inputs.Input().type(`month`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -293,7 +312,7 @@ Form.prototype.month = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new multiselect component */
-Form.prototype.multiselect = function (append = true, wrapper = true) {
+Container.prototype.multiselect = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain multiselect */
   if ( !wrapper )
     return new ezhtml.Select().multiple(true);
@@ -301,7 +320,7 @@ Form.prototype.multiselect = function (append = true, wrapper = true) {
   /** Create multiselect */
   const multiselect = new selects.Select().multiple(true);
   
-  /** Append multiselect to form, if desired */
+  /** Append multiselect to container, if desired */
   if ( append )
     this.append(multiselect);
   
@@ -310,7 +329,7 @@ Form.prototype.multiselect = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new number input component */
-Form.prototype.number = function (append = true, wrapper = true) {
+Container.prototype.number = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of number type */
   if ( !wrapper )
     return new ezhtml.Input().type(`number`);
@@ -318,7 +337,7 @@ Form.prototype.number = function (append = true, wrapper = true) {
   /** Create input of number type */
   const input = new inputs.Input().type(`number`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -327,7 +346,7 @@ Form.prototype.number = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new input/select option */
-Form.prototype.option = function (append = true) {
+Container.prototype.option = function (append = true) {
   /** Create option */
   const option = new ezhtml.Option();
   
@@ -343,7 +362,7 @@ Form.prototype.option = function (append = true) {
   
   /** If no valid container found, throw error */
   if ( !lastContainer )
-    throw new ReferenceError(`Form.option(): No container exists to place option in, option should succeed checkboxes, radios, or select.`);
+    throw new ReferenceError(`Container.option(): No container exists to place option in, option should succeed checkboxes, radios, or select.`);
   
   /** Append option to last container, if desired */
   if ( append )
@@ -354,15 +373,15 @@ Form.prototype.option = function (append = true) {
 };
 
 /** Create, if desired append, and return new paragraph component */
-Form.prototype.paragraph = function (append = true, wrapper = true) {
+Container.prototype.paragraph = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain paragraph */
   if ( !wrapper )
     return new ezhtml.Paragraph();
 
   /** Create paragraph */
-  const paragraph = new components.Paragraph();
+  const paragraph = new paragraphs.Paragraph();
   
-  /** Append paragraph to form, if desired */
+  /** Append paragraph to container, if desired */
   if ( append )
     this.append(paragraph);
   
@@ -371,7 +390,7 @@ Form.prototype.paragraph = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new password input component */
-Form.prototype.password = function (append = true, wrapper = true) {
+Container.prototype.password = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of password type */
   if ( !wrapper )
     return new ezhtml.Input().type(`password`);
@@ -379,7 +398,7 @@ Form.prototype.password = function (append = true, wrapper = true) {
   /** Create input of password type */
   const input = new inputs.Input().type(`password`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -388,11 +407,11 @@ Form.prototype.password = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new radio group component */
-Form.prototype.radios = function (append = true) {
+Container.prototype.radios = function (append = true) {
   /** Create radio group */
   const radios = new radioGroups.RadioGroup();
   
-  /** Append radio group to form, if desired */
+  /** Append radio group to container, if desired */
   if ( append )
     this.append(radios);
   
@@ -401,7 +420,7 @@ Form.prototype.radios = function (append = true) {
 };
 
 /** Create, if desired append, and return new range input component */
-Form.prototype.range = function (append = true, wrapper = true) {
+Container.prototype.range = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of range type */
   if ( !wrapper )
     return new ezhtml.Input().type(`range`);
@@ -409,7 +428,7 @@ Form.prototype.range = function (append = true, wrapper = true) {
   /** Create input of range type */
   const input = new inputs.Input().type(`range`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -418,7 +437,7 @@ Form.prototype.range = function (append = true, wrapper = true) {
 };
 
 /** Remove wrapper class helper */
-Form.prototype.removeWrapperClass = function (wrapperClass) {
+Container.prototype.removeWrapperClass = function (wrapperClass) {
   /** Get array of non-empty class names to be removed */
   const classes = wrapperClass.trim().split(` `).map(x => x.trim()).filter(x => x.length > 0);
 
@@ -433,43 +452,20 @@ Form.prototype.removeWrapperClass = function (wrapperClass) {
   return this;
 };
 
-/** Render form */
-Form.prototype.render = function (indent = 0) {
-  /** Validate size and rank */
+/** Render card */
+Container.prototype.render = function (indent = 0) {
+  /** Validate width */
   const widthClass = validation.validateWidth(this.width());
   
-  /** Create wrapper div with appropriate classes */
-  const wrapper = new ezhtml.Div().addClass(widthClass).addClass(this.wrapperClasses().join(` `));
-  
-  /** Create new form */
-  const form = new ezhtml.Form();
-  
-  /** Transfer properties */
-  form.attributes(this.attributes());
-  form.acceptCharset(this.acceptCharset());
-  form.action(this.action());
-  form.autocomplete(this.autocomplete());
-  form.classes(this.classes());
-  form.content(this.content());
-  form.enctype(this.enctype());
-  form.id(this.id());
-  form.lang(this.lang());
-  form.method(this.method());
-  form.name(this.name());
-  form.novalidate(this.novalidate());
-  form.style(this.style());
-  form.target(this.target());
-  form.title(this.title());
-  
-  /** Append form to wrapper */
-  wrapper.append(form);
+  /** Create wrapper div and transfer content */
+  const wrapper = new ezhtml.Div().addClass(widthClass).addClass(`flex-stack`).addClass(this.wrapperClasses().join(` `)).content(this.content());
   
   /** Render wrapper */
   return wrapper.render(indent);
 };
 
 /** Create, if desired append, and return new select component */
-Form.prototype.select = function (append = true, wrapper = true) {
+Container.prototype.select = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain select */
   if ( !wrapper )
     return new ezhtml.Select();
@@ -477,7 +473,7 @@ Form.prototype.select = function (append = true, wrapper = true) {
   /** Create select */
   const select = new selects.Select();
   
-  /** Append select to form, if desired */
+  /** Append select to container, if desired */
   if ( append )
     this.append(select);
   
@@ -486,11 +482,11 @@ Form.prototype.select = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new stack component */
-Form.prototype.stack = function (append = true) {
+Container.prototype.stack = function (append = true) {
   /** Create stack */
-  const stack = new stacks.Stack();
+  const stack = new Container();
   
-  /** Append stack to form, if desired */
+  /** Append stack to container, if desired */
   if ( append )
     this.append(stack);
   
@@ -499,15 +495,15 @@ Form.prototype.stack = function (append = true) {
 };
 
 /** Create, if desired append, and return new table component */
-Form.prototype.table = function (append = true, wrapper = true) {
+Container.prototype.table = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain table */
   if ( !wrapper )
     return new ezhtml.Table();
   
   /** Create table */
-  const table = new components.Table();
+  const table = new tables.Table();
   
-  /** Append table to form, if desired */
+  /** Append table to container, if desired */
   if ( append )
     this.append(table);
   
@@ -516,7 +512,7 @@ Form.prototype.table = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new telephone input component */
-Form.prototype.telephone = function (append = true, wrapper = true) {
+Container.prototype.telephone = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of tel type */
   if ( !wrapper )
     return new ezhtml.Input().type(`tel`);
@@ -524,7 +520,7 @@ Form.prototype.telephone = function (append = true, wrapper = true) {
   /** Create input of tel type */
   const input = new inputs.Input().type(`tel`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -533,7 +529,7 @@ Form.prototype.telephone = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new textarea component */
-Form.prototype.textarea = function (append = true, wrapper = true) {
+Container.prototype.textarea = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain textarea */
   if ( !wrapper )
     return new ezhtml.TextArea();
@@ -541,7 +537,7 @@ Form.prototype.textarea = function (append = true, wrapper = true) {
   /** Create textarea */
   const textarea = new textAreas.TextArea();
   
-  /** Append textarea to form, if desired */
+  /** Append textarea to container, if desired */
   if ( append )
     this.append(textarea);
   
@@ -550,7 +546,7 @@ Form.prototype.textarea = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new text input component */
-Form.prototype.text = function (append = true, wrapper = true) {
+Container.prototype.text = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of text type */
   if ( !wrapper )
     return new ezhtml.Input().type(`text`);
@@ -558,7 +554,7 @@ Form.prototype.text = function (append = true, wrapper = true) {
   /** Create input of text type */
   const input = new inputs.Input().type(`text`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -567,7 +563,7 @@ Form.prototype.text = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new time input component */
-Form.prototype.time = function (append = true, wrapper = true) {
+Container.prototype.time = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of time type */
   if ( !wrapper )
     return new ezhtml.Input().type(`time`);
@@ -575,7 +571,7 @@ Form.prototype.time = function (append = true, wrapper = true) {
   /** Create input of time type */
   const input = new inputs.Input().type(`time`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -584,7 +580,7 @@ Form.prototype.time = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new unordered list component */
-Form.prototype.unorderedList = function (append = true, wrapper = true) {
+Container.prototype.unorderedList = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain unordered list */
   if ( !wrapper )
     return new ezhtml.UnorderedList();
@@ -592,7 +588,7 @@ Form.prototype.unorderedList = function (append = true, wrapper = true) {
   /** Create unordered list */
   const unorderedList = new unorderedLists.UnorderedList();
   
-  /** Append unordered list to form, if desired */
+  /** Append unordered list to container, if desired */
   if ( append )
     this.append(unorderedList);
   
@@ -601,7 +597,7 @@ Form.prototype.unorderedList = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new url input component */
-Form.prototype.url = function (append = true, wrapper = true) {
+Container.prototype.url = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of url type */
   if ( !wrapper )
     return new ezhtml.Input().type(`url`);
@@ -609,7 +605,7 @@ Form.prototype.url = function (append = true, wrapper = true) {
   /** Create input of url type */
   const input = new inputs.Input().type(`url`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -618,7 +614,7 @@ Form.prototype.url = function (append = true, wrapper = true) {
 };
 
 /** Create, if desired append, and return new week input component */
-Form.prototype.week = function (append = true, wrapper = true) {
+Container.prototype.week = function (append = true, wrapper = true) {
   /** If no wrapper is desired, return plain input of week type */
   if ( !wrapper )
     return new ezhtml.Input().type(`week`);
@@ -626,7 +622,7 @@ Form.prototype.week = function (append = true, wrapper = true) {
   /** Create input of week type */
   const input = new inputs.Input().type(`week`);
   
-  /** Append input to form, if desired */
+  /** Append input to container, if desired */
   if ( append )
     this.append(input);
   
@@ -634,6 +630,6 @@ Form.prototype.week = function (append = true, wrapper = true) {
   return input;
 };
 
-/** Export class from module */
-module.exports.configForm = configForm;
-module.exports.Form = Form;
+/** Export class and class */
+module.exports.Container = Container;
+module.exports.configContainer = configContainer;

@@ -1,36 +1,32 @@
+@import 'alerts';
 @import 'backgrounds';
+@import 'buttons';
 @import 'cards';
-@import 'ezforms';
 @import 'fill';
 @import 'flex';
+@import 'forms';
 @import 'headings';
 @import 'images';
+@import 'lists';
 @import 'margin';
 @import 'padding';
+@import 'paragraphs';
+@import 'positioning';
 @import 'sizing';
 @import 'tables';
 @import 'text';
 
-body {
-  font-size: 16px;
+@mixin box-sizing($val) {
+  -webkit-box-sizing: $val;
+  -moz-box-sizing: $val;
+  box-sizing: $val;
 }
 
-body, body * {
-  box-sizing: border-box;  
+body {
+  font-size: 16px;
   font-family: Arial, sans-serif;
 }
 
-p {
-  margin-top: 7px;
-  margin-bottom: 7px;
-  text-align: justify;
-  text-indent: 15px;
-}
-
-.float-right {
-  float: right;
-}
-
-.float-left {
-  float: left;
+body, body * {
+  @include box-sizing(border-box);
 }

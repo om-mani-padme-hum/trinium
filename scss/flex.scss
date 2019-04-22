@@ -1,233 +1,342 @@
-
-body, .flex-stack {
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+}
+
+@mixin flex-direction($val: row) {
+  -webkit-flex-direction: $val;
+  -moz-flex-direction: $val;
+  -ms-flex-direction: $val;
+  -o-flex-direction: $val;
+  flex-direction: $val;
+}
+
+@mixin flex-wrap($val: wrap) {
+  -webkit-flex-wrap: $val;
+  -moz-flex-wrap: $val;
+  -ms-flex-wrap: $val;
+  -o-flex-wrap: $val;
+  flex-wrap: $val;
+}
+
+@mixin flex-basis($val: auto) {
+  -webkit-flex-basis: $val;
+  flex-basis: $val;
+}
+
+@mixin flex-grow($val: 1) {
+  -webkit-box-flex: $val;
+  -moz-box-flex: $val;
+  -webkit-flex-grow: $val;
+  -ms-flex: $val;
+  flex-grow: $val;
+}
+
+@mixin flex-shrink($val: 0) {
+  -webkit-flex-shrink: $val;
+  -moz-flex-shrink: $val;
+  -ms-flex: $val;
+  flex-shrink: $val;
+}
+
+body, .stack, form {
+  @include flexbox();
+  @include flex-direction();
+  @include flex-wrap();
+  justify-content: space-evenly;
   align-items: flex-start;
   align-content: flex-start;
 }
 
-.flex-stack {
+.blank, .stack {
   padding: 0px !important;
 }
 
 %container-defaults {
-  flex-grow: 1;
-  flex-shrink: 0;
-  padding: 10px;
+  @include flex-grow();
+  @include flex-shrink();
+  padding: 7px;
 }
 
-.flex-100 {
-  flex-basis: 100%;
+.flex-5 {
+  @include flex-basis(10%);
   @extend %container-defaults;
 }
 
-.flex-90 {
-  flex-basis: 90%;
-  @extend %container-defaults;
-}
 
-.flex-80 {
-  flex-basis: 80%;
-  @extend %container-defaults;
-}
-
-.flex-75 {
-  flex-basis: 75%;
-  @extend %container-defaults;
-}
-
-.flex-70 {
-  flex-basis: 70%;
-  @extend %container-defaults;
-}
-
-.flex-66 {
-  flex-basis: 66%;
-  @extend %container-defaults;
-}
-
-.flex-60 {
-  flex-basis: 60%;
-  @extend %container-defaults;
-}
-
-.flex-50 {
-  flex-basis: 50%;
-  @extend %container-defaults;
-}
-
-.flex-40 {
-  flex-basis: 40%;
-  @extend %container-defaults;
-}
-
-.flex-33 {
-  flex-basis: 33%;
-  @extend %container-defaults;
-}
-
-.flex-30 {
-  flex-basis: 30%;
-  @extend %container-defaults;
-}
-
-.flex-25 {
-  flex-basis: 25%;
-  @extend %container-defaults;
-}
-
-.flex-20 {
-  flex-basis: 20%;
+.flex-10 {
+  @include flex-basis(10%);
   @extend %container-defaults;
 }
 
 .flex-15 {
-  flex-basis: 10%;
+  @include flex-basis(15%);
   @extend %container-defaults;
 }
 
-.flex-10 {
-  flex-basis: 10%;
+.flex-20 {
+  @include flex-basis(20%);
+  @extend %container-defaults;
+}
+
+.flex-25 {
+  @include flex-basis(25%);
+  @extend %container-defaults;
+}
+
+.flex-30 {
+  @include flex-basis(30%);
+  @extend %container-defaults;
+}
+
+.flex-33 {
+  @include flex-basis(33%);
+  @extend %container-defaults;
+}
+
+.flex-35 {
+  @include flex-basis(35%);
+  @extend %container-defaults;
+}
+
+.flex-40 {
+  @include flex-basis(40%);
+  @extend %container-defaults;
+}
+
+.flex-45 {
+  @include flex-basis(45%);
+  @extend %container-defaults;
+}
+
+.flex-50 {
+  @include flex-basis(50%);
+  @extend %container-defaults;
+}
+
+.flex-55 {
+  @include flex-basis(55%);
+  @extend %container-defaults;
+}
+
+.flex-60 {
+  @include flex-basis(60%);
+  @extend %container-defaults;
+}
+
+.flex-65 {
+  @include flex-basis(65%);
+  @extend %container-defaults;
+}
+
+.flex-66 {
+  @include flex-basis(66%);
+  @extend %container-defaults;
+}
+
+.flex-70 {
+  @include flex-basis(70%);
+  @extend %container-defaults;
+}
+
+.flex-75 {
+  @include flex-basis(75%);
+  @extend %container-defaults;
+}
+
+.flex-80 {
+  @include flex-basis(80%);
+  @extend %container-defaults;
+}
+
+.flex-85 {
+  @include flex-basis(85%);
+  @extend %container-defaults;
+}
+
+.flex-90 {
+  @include flex-basis(90%);
+  @extend %container-defaults;
+}
+
+.flex-95 {
+  @include flex-basis(95%);
+  @extend %container-defaults;
+}
+
+.flex-100 {
+  @include flex-basis(100%);
+  @extend %container-defaults;
+}
+
+.flex-5px {
+  @include flex-basis(5px);
+  @extend %container-defaults;
+}
+
+.flex-10px {
+  @include flex-basis(10px);
+  @extend %container-defaults;
+}
+
+.flex-15px {
+  @include flex-basis(15px);
+  @extend %container-defaults;
+}
+
+.flex-25px {
+  @include flex-basis(25px);
+  @extend %container-defaults;
+}
+
+.flex-50px {
+  @include flex-basis(50px);
+  @extend %container-defaults;
+}
+
+.flex-75px {
+  @include flex-basis(75px);
   @extend %container-defaults;
 }
 
 .flex-100px {
-  flex-basis: 100px;
+  @include flex-basis(100px);
   @extend %container-defaults;
 }
 
 .flex-125px {
-  flex-basis: 125px;
+  @include flex-basis(125px);
   @extend %container-defaults;
 }
 
 .flex-150px {
-  flex-basis: 150px;
+  @include flex-basis(150px);
   @extend %container-defaults;
 }
 
 .flex-175px {
-  flex-basis: 175px;
+  @include flex-basis(175px);
   @extend %container-defaults;
 }
 
 .flex-200px {
-  flex-basis: 200px;
+  @include flex-basis(200px);
   @extend %container-defaults;
 }
 
 .flex-225px {
-  flex-basis: 225px;
+  @include flex-basis(225px);
   @extend %container-defaults;
 }
 
 .flex-250px {
-  flex-basis: 250px;
+  @include flex-basis(250px);
   @extend %container-defaults;
 }
 
 .flex-300px {
-  flex-basis: 300px;
+  @include flex-basis(300px);
   @extend %container-defaults;
 }
 
 .flex-350px {
-  flex-basis: 350px;
+  @include flex-basis(350px);
   @extend %container-defaults;
 }
 
 .flex-400px {
-  flex-basis: 400px;
+  @include flex-basis(400px);
   @extend %container-defaults;
 }
 
 .flex-450px {
-  flex-basis: 450px;
+  @include flex-basis(450px);
   @extend %container-defaults;
 }
 
 .flex-500px {
-  flex-basis: 500px;
+  @include flex-basis(500px);
   @extend %container-defaults;
 }
 
 .flex-550px {
-  flex-basis: 550px;
+  @include flex-basis(550px);
   @extend %container-defaults;
 }
 
 .flex-600px {
-  flex-basis: 600px;
+  @include flex-basis(600px);
   @extend %container-defaults;
 }
 
 .flex-650px {
-  flex-basis: 650px;
+  @include flex-basis(650px);
   @extend %container-defaults;
 }
 
 .flex-700px {
-  flex-basis: 700px;
+  @include flex-basis(700px);
   @extend %container-defaults;
 }
 
 .flex-750px {
-  flex-basis: 750px;
+  @include flex-basis(750px);
   @extend %container-defaults;
 }
 
 .flex-800px {
-  flex-basis: 800px;
+  @include flex-basis(800px);
   @extend %container-defaults;
 }
 
 .flex-900px {
-  flex-basis: 900px;
+  @include flex-basis(900px);
   @extend %container-defaults;
 }
 
 .flex-1000px {
-  flex-basis: 1000px;
+  @include flex-basis(1000px);
   @extend %container-defaults;
 }
 
 .flex-1100px {
-  flex-basis: 1100px;
+  @include flex-basis(1100px);
   @extend %container-defaults;
 }
 
 .flex-1200px {
-  flex-basis: 1200px;
+  @include flex-basis(1200px);
   @extend %container-defaults;
 }
 
 .flex-ty, .flex-tiny {
-  flex-basis: 320px;
+  @include flex-basis(320px);
   @extend %container-defaults;
 }
 
 .flex-sm, .flex-small {
-  flex-basis: 480px;
+  @include flex-basis(480px);
   @extend %container-defaults;
 }
 
 .flex-md, .flex-medium {
-  flex-basis: 640px;
+  @include flex-basis(640px);
   @extend %container-defaults;
 }
 
 .flex-lg, .flex-large {
-  flex-basis: 960px;
+  @include flex-basis(960px);
   @extend %container-defaults;
 }
 
 .flex-xl, .flex-extra-large {
-  flex-basis: 1280px;
+  @include flex-basis(1280px);
   @extend %container-defaults;
 }
 
 .fixed {
-  flex-grow: 0 !important;
+  @include flex-grow(0 !important);
 }

@@ -6,22 +6,21 @@ const ezobjects = require(`ezobjects`);
 const validation = require(`./validation`);
 
 /** Configure class */
-const configImage = {
-  className: `Image`,
-  extends: ezhtml.Image,
-  extendsConfig: ezhtml.configImage,
+const configUnorderedList = {
+  className: `UnorderedList`,
+  extends: ezhtml.UnorderedList,
+  extendsConfig: ezhtml.configUnorderedList,
   properties: [
-    { name: `shadow`, type: `boolean` },
     { name: `width`, type: `string`, default: `100` },
     { name: `wrapperClasses`, type: `Array`, arrayOf: { type: `string` } }
   ]
 };
 
 /** Create class */
-ezobjects.createClass(configImage);
+ezobjects.createClass(configUnorderedList);
 
 /** Add wrapper class helper */
-Image.prototype.addWrapperClass = function (wrapperClass) {
+UnorderedList.prototype.addWrapperClass = function (wrapperClass) {
   /** Get array of non-empty class names to be added */
   const classes = wrapperClass.trim().split(` `).map(x => x.trim()).filter(x => x.length > 0);
 
@@ -36,8 +35,21 @@ Image.prototype.addWrapperClass = function (wrapperClass) {
   return this;
 };
 
+/** Create, if desired append, and return new list item */
+UnorderedList.prototype.item = function (append = true) {
+  /** Create list item */
+  const item = new ezhtml.ListItem();
+  
+  /** Append list item to list, if desired */
+  if ( append )
+    this.append(item);
+  
+  /** Return list item for call chaining */
+  return item;
+};
+
 /** Remove wrapper class helper */
-Image.prototype.removeWrapperClass = function (wrapperClass) {
+UnorderedList.prototype.removeWrapperClass = function (wrapperClass) {
   /** Get array of non-empty class names to be removed */
   const classes = wrapperClass.trim().split(` `).map(x => x.trim()).filter(x => x.length > 0);
 
@@ -52,48 +64,33 @@ Image.prototype.removeWrapperClass = function (wrapperClass) {
   return this;
 };
 
-/** Render card */
-Image.prototype.render = function (indent = 0) {
+/** Render unordered list component */
+UnorderedList.prototype.render = function (indent = 0) {
   /** Validate width */
   const widthClass = validation.validateWidth(this.width());
   
-  /** Create wrapper div and transfer content */
-  const wrapper = new ezhtml.Div().addClass(widthClass).addClass(`image-wrapper`).addClass(this.wrapperClasses().join(` `));
+  /** Create wrapper div and add width and wrapper classes */
+  const wrapper = new ezhtml.Div().addClass(widthClass).addClass(this.wrapperClasses().join(` `));
   
-  /** Create image */
-  const image = new ezhtml.Image();
-
+  /** Create unordered list */
+  const unorderedList = new ezhtml.UnorderedList();
+  
   /** Transfer properties */
-  image.alt(this.alt());
-  image.attributes(this.attributes());
-  image.classes(this.classes());
-  image.crossorigin(this.crossorigin());
-  image.height(this.height());
-  image.id(this.id());
-  image.ismap(this.ismap());
-  image.lang(this.lang());
-  image.longdesc(this.longdesc());
-  image.sizes(this.sizes());
-  image.src(this.src());
-  image.srcset(this.srcset());
-  image.style(this.style());
-  image.title(this.title());
-  image.usemap(this.usemap());
+  unorderedList.attributes(this.attributes());
+  unorderedList.classes(this.classes());
+  unorderedList.content(this.content());
+  unorderedList.id(this.id());
+  unorderedList.lang(this.lang());
+  unorderedList.style(this.style());
+  unorderedList.title(this.title());
+
+  /** Append unordered list to wrapper */
+  wrapper.append(unorderedList);
   
-  /** Add image class for sizing */
-  image.addClass(widthClass.replace(`flex`, `width`));
-  
-  /** If we're to apply a shadow, add image shadow class */
-  if ( this.shadow() )
-    image.addClass(`image-shadow`);
-  
-  /** Append image to wrapper */
-  wrapper.append(image);
-  
-  /** Render wrapper */
+  /** Return markup */
   return wrapper.render(indent);
 };
 
-/** Export class */
-module.exports.configImage = configImage;
-module.exports.Image = Image;
+/** Export class from module */
+module.exports.configUnorderedList = configUnorderedList;
+module.exports.UnorderedList = UnorderedList;

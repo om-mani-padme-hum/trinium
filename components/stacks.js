@@ -3,38 +3,44 @@ const ezhtml = require(`ezhtml`);
 const ezobjects = require(`ezobjects`);
 
 /** Require local modules */
-const validation = require(`../validation`);
+const containers = require(`./containers`);
+const forms = require(`./forms`);
+const validation = require(`./validation`);
 
 /** Configure class */
 const configStack = {
   className: `Stack`,
-  extends: ezhtml.Container,
-  extendsConfig: ezhtml.configContainer,
-  properties: [
-    { name: `size`, type: `string`, default: `tiny` },
-    { name: `wrapperClasses`, type: `Array`, arrayOf: { type: `string` } }
-  ]
+  extends: containers.FlexContainer,
+  extendsConfig: containers.configFlexContainer
 };
 
 /** Create class */
 ezobjects.createClass(configStack);
 
-/** Add wrapper class helper */
-Stack.prototype.addWrapperClass = function (wrapperClass) {
-  /** Append class to classes array */
-  this.wrapperClasses().push(wrapperClass);
+/** Create, if desired append, and return new form component */
+Stack.prototype.form = function (append = true, wrapper = true) {
+  /** If no wrapper is desired, return plain form */
+  if ( !wrapper )
+    return new ezhtml.Form();
   
-  /** Return this object for call chaining */
-  return this;
+  /** Create form */
+  const form = new forms.Form();
+  
+  /** Append form to stack, if desired */
+  if ( append )
+    this.append(form);
+  
+  /** Return form for call chaining */
+  return form;
 };
 
 /** Render card */
 Stack.prototype.render = function (indent = 0) {
-  /** Validate size */
-  const sizeClass = validation.validateSize(this.size());
+  /** Validate width */
+  const widthClass = validation.validateWidth(this.width());
   
   /** Create wrapper div and transfer content */
-  const wrapper = new ezhtml.Div().addClass(sizeClass).addClass(`flex-stack`).addClass(this.wrapperClasses().join(` `)).content(this.content());
+  const wrapper = new ezhtml.Div().addClass(widthClass).addClass(`stack`).addClass(this.wrapperClasses().join(` `)).content(this.content());
   
   /** Render wrapper */
   return wrapper.render(indent);

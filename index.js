@@ -1,7 +1,13 @@
+/** Re-export components */
 const components = require(`./components`);
-const pages = require(`./pages`);
 
+module.exports.configAlert = components.configAlert;
+module.exports.configAnchor = components.configAnchor;
 module.exports.configBlank = components.configBlank;
+module.exports.configButton = components.configButton;
+module.exports.configCard = components.configCard;
+module.exports.configCheckboxGroup = components.configCheckboxGroup;
+module.exports.configContainer = components.configContainer;
 module.exports.configForm = components.configForm;
 module.exports.configH1 = components.configH1;
 module.exports.configH2 = components.configH2;
@@ -10,10 +16,20 @@ module.exports.configH4 = components.configH4;
 module.exports.configH5 = components.configH5;
 module.exports.configH6 = components.configH6;
 module.exports.configImage = components.configImage;
+module.exports.configPage = components.configPage;
+module.exports.configParagraph = components.configParagraph;
+module.exports.configRadioGroup = components.configRadioGroup;
+module.exports.configSelect = components.configSelect;
 module.exports.configStack = components.configStack;
 module.exports.configTable = components.configTable;
 
+module.exports.Alert = components.Alert;
+module.exports.Anchor = components.Anchor;
 module.exports.Blank = components.Blank;
+module.exports.Button = components.Button;
+module.exports.Card = components.Card;
+module.exports.CheckboxGroup = components.CheckboxGroup;
+module.exports.Container = components.Container;
 module.exports.Form = components.Form;
 module.exports.H1 = components.H1;
 module.exports.H2 = components.H2;
@@ -22,7 +38,9 @@ module.exports.H4 = components.H4;
 module.exports.H5 = components.H5;
 module.exports.H6 = components.H6;
 module.exports.Image = components.Image;
+module.exports.Page = components.Page;
+module.exports.Paragraph = components.Paragraph;
+module.exports.RadioGroup = components.RadioGroup;
+module.exports.Select = components.Select;
 module.exports.Stack = components.Stack;
 module.exports.Table = components.Table;
-
-module.exports.Page = pages.Page;

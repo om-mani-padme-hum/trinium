@@ -1,6 +1,6 @@
 {
   "name": "trinium",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Trinium Web Development Framework",
   "main": "index.js",
   "scripts": {

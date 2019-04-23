@@ -1,4 +1,4 @@
-# Trinium v0.5.0
+# Trinium v0.6.0
 
 ## Status
 

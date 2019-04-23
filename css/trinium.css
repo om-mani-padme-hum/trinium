@@ -1189,24 +1189,24 @@ body, .stack, form {
   flex-basis: 1200px; }
 
 .flex-ty, .flex-tiny {
+  -webkit-flex-basis: 160px;
+  flex-basis: 160px; }
+
+.flex-sm, .flex-small {
   -webkit-flex-basis: 320px;
   flex-basis: 320px; }
 
-.flex-sm, .flex-small {
+.flex-md, .flex-medium {
   -webkit-flex-basis: 480px;
   flex-basis: 480px; }
 
-.flex-md, .flex-medium {
+.flex-lg, .flex-large {
   -webkit-flex-basis: 640px;
   flex-basis: 640px; }
 
-.flex-lg, .flex-large {
+.flex-xl, .flex-extra-large {
   -webkit-flex-basis: 960px;
   flex-basis: 960px; }
-
-.flex-xl, .flex-extra-large {
-  -webkit-flex-basis: 1280px;
-  flex-basis: 1280px; }
 
 .fixed {
   -webkit-box-flex: 0 !important;

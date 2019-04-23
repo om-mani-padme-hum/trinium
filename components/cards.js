@@ -14,6 +14,7 @@ const forms = require(`./forms`);
 const headings = require(`./headings`);
 const images = require(`./images`);
 const inputs = require(`./inputs`);
+const orderedLists = require(`./ordered-lists`);
 const paragraphs = require(`./paragraphs`);
 const radioGroups = require(`./radio-groups`);
 const selects = require(`./selects`);
@@ -393,6 +394,23 @@ Card.prototype.option = function (append = true) {
   
   /** Return heading for call chaining */
   return option;
+};
+
+/** Create, if desired append, and return new ordered list component */
+Card.prototype.orderedList = function (append = true, wrapper = true) {
+  /** If no wrapper is desired, return plain ordered list */
+  if ( !wrapper )
+    return new ezhtml.OrderedList();
+  
+  /** Create ordered list */
+  const orderedList = new orderedLists.OrderedList();
+  
+  /** Append ordered list to card, if desired */
+  if ( append )
+    this.append(orderedList);
+  
+  /** Return ordered list for call chaining */
+  return orderedList;
 };
 
 /** Create, if desired append, and return new paragraph component */

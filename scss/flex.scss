@@ -313,27 +313,27 @@ body, .stack, form {
 }
 
 .flex-ty, .flex-tiny {
-  @include flex-basis(320px);
+  @include flex-basis(160px);
   @extend %container-defaults;
 }
 
 .flex-sm, .flex-small {
-  @include flex-basis(480px);
+  @include flex-basis(320px);
   @extend %container-defaults;
 }
 
 .flex-md, .flex-medium {
-  @include flex-basis(640px);
+  @include flex-basis(480px);
   @extend %container-defaults;
 }
 
 .flex-lg, .flex-large {
-  @include flex-basis(960px);
+  @include flex-basis(640px);
   @extend %container-defaults;
 }
 
 .flex-xl, .flex-extra-large {
-  @include flex-basis(1280px);
+  @include flex-basis(960px);
   @extend %container-defaults;
 }
 

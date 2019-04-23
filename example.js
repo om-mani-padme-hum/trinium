@@ -82,7 +82,7 @@ app.get(`/`, (req, res, next) => {
   p.h2().text(`Welcome To Trinium...`);
   
   /** Create small card component with a white on steel blue header */
-  const card = p.card().width(`small`).addHeaderClass(`bg-steel-blue text-white`).header(`A Variety of Components`);
+  const card = p.card().width(`medium`).addHeaderClass(`bg-steel-blue text-white`).header(`A Variety of Components`);
   
   /** Append three paragraphs to the body of the card */
   card.paragraph().text(`Trinium comes with a number of built in components, some with APIs that help speed up the design process, such as this simple and easy to use card component with a white on blue header and rounded borders.  Card components have a wrapper that contains a header and a body.  The header is accessible by the .header() method, and everything else that's appended will end up in the body.`);
@@ -126,7 +126,7 @@ app.get(`/`, (req, res, next) => {
   form.button().addClass(`bg-steel-blue text-white`).addWrapperClass(`fixed`).width(`40`).type(`submit`).text(`Create Account`);
 
   /** Create a tiny sized table */
-  const table = p.table().width(`tiny`);
+  const table = p.table().width(`small`);
   
   /** Create table head */
   table.head();
@@ -156,7 +156,7 @@ app.get(`/`, (req, res, next) => {
   }
   
   /** Create tiny sized stack component */
-  const stack = p.stack().width(`tiny`).addWrapperClass(`fixed text-center`);
+  const stack = p.stack().width(`small`).addWrapperClass(`fixed text-center`);
   
   /** Append 100% wide H5 heading component to the stack with bottom padding removed byway of a helper class */
   stack.h5().addWrapperClass(`pb-0`).text(`Miss Molly - Age 2ish`);
@@ -165,7 +165,7 @@ app.get(`/`, (req, res, next) => {
   stack.image().src(`/images/example.jpg`).shadow(true);
   
   /** Create fixed, small sized blank component back on the main page */
-  const blank = p.blank().width(`small`).addWrapperClass(`fixed`);
+  const blank = p.blank().width(`small`);
   
   /** Append four paragraphs of text with example inline image, link, and special font feature */
   blank.paragraph().text(`The picture you saw in the stack component with nested heading and image components was of my niece Molly when she was about two years old I would guess.  <img src='/images/example.jpg' class='float-right width-150px image-shadow-tiny m-2'> She's always been a cutie so I figured she'd work well in the demo.`);
@@ -173,14 +173,12 @@ app.get(`/`, (req, res, next) => {
   blank.paragraph().text(`You can also see that it's possible to just write HTML inline in the text for simple things like inline images, <a href='http://github.com/om-mani-padme-hum/trinium'>links</a>, <i>special font features</i>, and other traditional inter-paragraph content.`);
   blank.paragraph().text(`You heard me refer to the stack component with the nested heading and image components containing the larger image of my niece enjoying some pizza.  Stack components are extremely useful for combining multiple smaller components adjacent to larger components, or for grouping flex content together for layout purposes.`);
     
-  const list = p.stack().width(`small`).addWrapperClass(`fixed`);
+  const listWest = p.stack().width(`small`).addWrapperClass(`fixed`);
   
-  list.h4().text(`West Coast Cities`);
+  listWest.h4().text(`West Coast Cities`);
   
-  const ul = list.unorderedList();
+  const ul = listWest.unorderedList();
   
-  ul.item().text(`Anchorage, AK`);
-  ul.item().text(`Vancouver, CA`);
   ul.item().text(`Seattle, WA`);
   ul.item().text(`Olympia, WA`);
   ul.item().text(`Portland, OR`);
@@ -189,6 +187,21 @@ app.get(`/`, (req, res, next) => {
   ul.item().text(`San Francisco, CA`);
   ul.item().text(`Los Angeles, CA`);
   ul.item().text(`San Diego, CA`);
+  
+  const listEast = p.stack().width(`small`).addWrapperClass(`fixed`);
+  
+  listEast.h4().text(`East Coast Cities`);
+  
+  const ol = listEast.orderedList();
+  
+  ol.item().text(`Boston, MA`);
+  ol.item().text(`New York, NY`);
+  ol.item().text(`Washington, DC`);
+  ol.item().text(`Norfolk, VA`);
+  ol.item().text(`Wilmington, NC`);
+  ol.item().text(`Charleston, SC`);
+  ol.item().text(`Jacksonville, FL`);
+  ol.item().text(`Miami, FL`);
   
   /** Render and send page as response */
   res.send(p.render());

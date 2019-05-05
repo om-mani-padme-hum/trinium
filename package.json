@@ -20,8 +20,8 @@
     "express": "^4.16.4"
   },
   "dependencies": {
-    "ezhtml": "^1.5.1",
-    "ezobjects": "^5.4.7",
+    "ezhtml": "^1.5.2",
+    "ezobjects": "^5.4.8",
     "octicons": "^8.5.0"
   }
 }

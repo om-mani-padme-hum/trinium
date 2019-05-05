@@ -1,4 +1,4 @@
-# Trinium v0.6.0
+# Trinium v0.6.1
 
 ## Status
 
@@ -13,6 +13,41 @@ Documentation below needs updating, forms and tables are no longer based on EZ f
 ## Example Snippet of Trinium Demo Page
 
 ```javascript
+/** Require external modules */
+const express = require(`express`);
+const octicons = require(`octicons`);
+const trinium = require(`./index`);
+
+/** Create express app */
+const app = express();
+
+/** Serve CSS files from /css directory */
+app.get(`/css/:filename`, (req, res, next) => {
+  /** Attempt to send file from /css directory, passing any errors to next route */
+  res.sendFile(req.params.filename, { root: __dirname + '/css/' }, (err) => {
+    if ( err )
+      next(err);
+  });
+});
+
+/** Serve image files from /images directory */
+app.get(`/images/:filename`, (req, res, next) => {
+  /** Attempt to send file from /css directory, passing any errors to next route */
+  res.sendFile(req.params.filename, { root: __dirname + '/images/' }, (err) => {
+    if ( err )
+      next(err);
+  });
+});
+
+/** Serve JavaScript files from /js directory */
+app.get(`/js/:filename`, (req, res, next) => {
+  /** Attempt to send file from /css directory, passing any errors to next route */
+  res.sendFile(req.params.filename, { root: __dirname + '/js/' }, (err) => {
+    if ( err )
+      next(err);
+  });
+});
+
 /** Server example home page */
 app.get(`/`, (req, res, next) => {
   /** Create new trinium page */
@@ -23,11 +58,11 @@ app.get(`/`, (req, res, next) => {
   p.css().push(`/css/trinium.css`);
   p.javascript().push(`/js/trinium.js`);
   
-  /** Create 100% wide H2 heading component */
+  /** Create 100% wide H2 heading component (100% wide is the default if you don't use the width() method) */
   p.h2().text(`Welcome To Trinium...`);
   
   /** Create small card component with a white on steel blue header */
-  const card = p.card().width(`small`).addHeaderClass(`bg-steel-blue text-white`).header(`A Variety of Components`);
+  const card = p.card().width(`medium`).addHeaderClass(`bg-steel-blue text-white`).header(`A Variety of Components`);
   
   /** Append three paragraphs to the body of the card */
   card.paragraph().text(`Trinium comes with a number of built in components, some with APIs that help speed up the design process, such as this simple and easy to use card component with a white on blue header and rounded borders.  Card components have a wrapper that contains a header and a body.  The header is accessible by the .header() method, and everything else that's appended will end up in the body.`);
@@ -40,38 +75,38 @@ app.get(`/`, (req, res, next) => {
   /** Set form action and method properties */
   form.action(`/`).method(`GET`);
   
-  /** Create 16 column wide form heading (16 columns is also the default and represents 100% wide) */
+  /** Create 100% wide form heading */
   form.h4().text(`Join Our Community...`);
   
-  /** If required, create 13 column wide error-type alert */
+  /** If required, create 100% wide error-type alert */
   if ( req.query.showPasswordCharactersError )
     form.alert().type(`error`).strong(`Error!`).text(`Your password must contain at least one lowercase letter, one uppercase letter, and one number!`);
   
-  /** Create two required six column wide text inputs, separated by 2 space columns */
+  /** Create two required 40% wide text inputs, each appended by 10% wide blanks */
   form.text().width(`40`).name(`firstName`).label(`First Name:`).required(true);
   form.blank().width(`10`);
   form.text().width(`40`).name(`lastName`).label(`Last Name:`).required(true);
   form.blank().width(`10`);
 
-  /** Create two required seven column wide password inputs, separated by 1 space column */
+  /** Create two required 40% wide password inputs, each appended by 10% wide blanks */
   form.password().width(`40`).name(`password`).label(`Choose Password:`).required(true);
   form.blank().width(`10`);
   form.password().width(`40`).name(`password2`).label(`Confirm Password:`).required(true);
   form.blank().width(`10`);
   
-  /** Create optional eight column wide email input */
+  /** Create optional 50% wide email input */
   form.email().width(`50`).name(`email`).label(`Email Address:`);
   
-  /** Create eight column wide horizontally arranged radio group input */
-  form.radios().width(`50`).name(`sex`).label(`Sex:`).align(`horizontal`);
+  /** Create required 50% wide horizontally arranged radio group input */
+  form.radios().width(`50`).name(`sex`).label(`Sex:`).align(`horizontal`).required(true);
   form.option().value(`female`).text(`Female`).selected(true);
   form.option().value(`male`).text(`Male`);
   
-  /** Create six column wide submit button spaced 5 space columns in with a white on steel blue appearance */
-  form.button().addClass(`bg-steel-blue text-white`).addWrapperClass(`fixed`).width(`40`).type(`submit`).text(`Create Account`);
+  /** Create fixed 40% wide submit button in with a white on steel blue appearance */
+  form.button().width(`40`).addClass(`bg-steel-blue text-white`).addWrapperClass(`fixed`).type(`submit`).text(`Create Account`);
 
-  /** Create a tiny sized table */
-  const table = p.table().width(`tiny`);
+  /** Create a small sized table */
+  const table = p.table().width(`small`);
   
   /** Create table head */
   table.head();
@@ -100,32 +135,34 @@ app.get(`/`, (req, res, next) => {
     table.data().style(`text-align: center;`).append(p.anchor(false, false).href(`delete?id=${i}`).text(octicons.trashcan.toSVG({ width: 16 })));
   }
   
-  /** Create tiny sized stack component */
-  const stack = p.stack().width(`tiny`).addWrapperClass(`fixed text-center`);
+  /** Create fixed small sized stack component with contents centered */
+  const stack = p.stack().width(`small`).addWrapperClass(`fixed text-center`);
   
-  /** Append 100% wide H5 heading component to the stack with bottom padding removed byway of a helper class */
-  stack.h5().addWrapperClass(`pb-0`).text(`Miss Molly - Age 2ish`);
+  /** Append 100% wide H5 heading component to the stack */
+  stack.h5().text(`Miss Molly - Age 2ish`);
   
   /** Append 100% wide image component to the stack with shadow applied */
   stack.image().src(`/images/example.jpg`).shadow(true);
   
   /** Create fixed, small sized blank component back on the main page */
-  const blank = p.blank().width(`small`).addWrapperClass(`fixed`);
+  const blank = p.blank().width(`small`);
   
   /** Append four paragraphs of text with example inline image, link, and special font feature */
-  blank.paragraph().text(`The picture you saw in the stack component with nested heading and image components was of my niece Molly when she was about two years old I would guess.  <img src='/images/example.jpg' class='float-right width-150px image-shadow-tiny m-2'> She's always been a cutie so I figured she'd work well in the demo.`);
+  blank.paragraph().text(`The picture you saw in the stack component with nested heading and image components was of my niece Molly when she was about two years old I would guess.  <img src='/images/example.jpg' class='float-right width-150px shadow-tiny m-2'> She's always been a cutie so I figured she'd work well in the demo.`);
   blank.paragraph().text(`I'm including her again in this blank component that has had four paragraphs and her image appended to show how simple it is to get text and image content to flow together using simple classes like float-left and float-right.`);
   blank.paragraph().text(`You can also see that it's possible to just write HTML inline in the text for simple things like inline images, <a href='http://github.com/om-mani-padme-hum/trinium'>links</a>, <i>special font features</i>, and other traditional inter-paragraph content.`);
   blank.paragraph().text(`You heard me refer to the stack component with the nested heading and image components containing the larger image of my niece enjoying some pizza.  Stack components are extremely useful for combining multiple smaller components adjacent to larger components, or for grouping flex content together for layout purposes.`);
-    
-  const list = p.stack().width(`small`).addWrapperClass(`fixed`);
   
-  list.h4().text(`West Coast Cities`);
+  /** Create fixed small sized stack component */
+  const listWest = p.stack().width(`small`).addWrapperClass(`fixed`);
   
-  const ul = list.unorderedList();
+  /** Append 100% wide H4 heading component to the stack */
+  listWest.h4().text(`West Coast Cities`);
   
-  ul.item().text(`Anchorage, AK`);
-  ul.item().text(`Vancouver, CA`);
+  /** Append 100% wide unordered list component to the stack */
+  const ul = listWest.unorderedList().addClass(`list-style-none`);
+  
+  /** Add several example list items */
   ul.item().text(`Seattle, WA`);
   ul.item().text(`Olympia, WA`);
   ul.item().text(`Portland, OR`);
@@ -135,11 +172,35 @@ app.get(`/`, (req, res, next) => {
   ul.item().text(`Los Angeles, CA`);
   ul.item().text(`San Diego, CA`);
   
+  /** Create fixed small sized stack component */
+  const listEast = p.stack().width(`small`).addWrapperClass(`fixed`);
+  
+  /** Append 100% wide H4 heading component to the stack */
+  listEast.h4().text(`East Coast Cities`);
+  
+  /** Create 100% wide unordered list component to the stack */
+  const ol = listEast.orderedList();
+  
+  /** Add several example list items */
+  ol.item().text(`Boston, MA`);
+  ol.item().text(`New York, NY`);
+  ol.item().text(`Washington, DC`);
+  ol.item().text(`Norfolk, VA`);
+  ol.item().text(`Wilmington, NC`);
+  ol.item().text(`Charleston, SC`);
+  ol.item().text(`Jacksonville, FL`);
+  ol.item().text(`Miami, FL`);
+  
   /** Render and send page as response */
   res.send(p.render());
 
   /** Call next express handler */
   next();
+});
+
+/** Start server on port 3000 */
+app.listen(3000, () => {
+  console.log(`Trinium demo is up and running on port 3000!`);
 });
 ```
 
@@ -155,13 +216,47 @@ const p = new trinium.Page();
 
 A page has the following methods:
 
+* **Page.addWrapperClass(append = true)** - Create a blank component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.alert(append = true)** - Create a blank component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.anchor(append = true)** - Create a blank component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
 * **Page.blank(append = true)** - Create a blank component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.button(append = true)** - Create a blank component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
 * **Page.card(append = true)** - Create a card component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
-* **Page.form(append = true, wrapper = true)** - Create a form component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
-* **Page.heading(append = true, wrapper = true)** - Create a heading component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.checkboxes(append = true)** - Create a card component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.color(append = true)** - Create a card component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.date(append = true)** - Create a card component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.datetime(append = true)** - Create a card component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.email(append = true)** - Create a card component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.file(append = true)** - Create a card component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.form(append = true)** - Create a card component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.h1(append = true, wrapper = true)** - Create a form component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.h2(append = true, wrapper = true)** - Create a form component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.h3(append = true, wrapper = true)** - Create a form component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.h4(append = true, wrapper = true)** - Create a form component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.h5(append = true, wrapper = true)** - Create a form component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.h6(append = true, wrapper = true)** - Create a form component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.hidden(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
 * **Page.image(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.month(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.multiselect(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.number(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.option(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.orderedList(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.paragraph(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.password(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.radios(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.range(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.removeWrapperClass(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.select(append = true)** - Create a stack component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
 * **Page.stack(append = true)** - Create a stack component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
 * **Page.table(append = true, wrapper = true)** - Create a table component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.telephone(append = true, wrapper = true)** - Create a table component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.textarea(append = true, wrapper = true)** - Create a table component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.text(append = true, wrapper = true)** - Create a table component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.time(append = true, wrapper = true)** - Create a table component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.unorderedList(append = true, wrapper = true)** - Create a table component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.url(append = true, wrapper = true)** - Create a table component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.week(append = true, wrapper = true)** - Create a table component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
 
 ## Component Classes
 

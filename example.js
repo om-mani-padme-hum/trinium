@@ -1,68 +1,33 @@
 /** Require external modules */
 const express = require(`express`);
-const ezhtml = require(`ezhtml`);
-const fs = require(`fs`);
 const octicons = require(`octicons`);
 const trinium = require(`./index`);
 
 /** Create express app */
 const app = express();
 
-/** Serve CSS files from /css dir */
+/** Serve CSS files from /css directory */
 app.get(`/css/:filename`, (req, res, next) => {
-  if ( !req.params.filename.match(/\.(css|map)$/) )
-    return res.status(404).end();
-  
-  const cssOptions = {
-    root: __dirname + '/css/',
-    dotfiles: 'deny',
-    headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true
-    }
-  };
-
-  res.sendFile(req.params.filename, cssOptions, function (err) {
+  /** Attempt to send file from /css directory, passing any errors to next route */
+  res.sendFile(req.params.filename, { root: __dirname + '/css/' }, (err) => {
     if ( err )
       next(err);
   });
 });
 
-/** Serve image files from /images dir */
+/** Serve image files from /images directory */
 app.get(`/images/:filename`, (req, res, next) => {
-  if ( !req.params.filename.match(/\.(gif|png|jpg|svg|ico)$/) )
-    return res.status(404).end();
-  
-  const imageOptions = {
-    root: __dirname + '/images/',
-    dotfiles: 'deny',
-    headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true
-    }
-  };
-
-  res.sendFile(req.params.filename, imageOptions, function (err) {
+  /** Attempt to send file from /css directory, passing any errors to next route */
+  res.sendFile(req.params.filename, { root: __dirname + '/images/' }, (err) => {
     if ( err )
       next(err);
   });
 });
 
-/** Serve JavaScript files from /js dir */
+/** Serve JavaScript files from /js directory */
 app.get(`/js/:filename`, (req, res, next) => {
-  if ( !req.params.filename.match(/\.(js|map)$/) )
-    return res.status(404).end();
-  
-  const jsOptions = {
-    root: __dirname + '/js/',
-    dotfiles: 'deny',
-    headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true
-    }
-  };
-
-  res.sendFile(req.params.filename, jsOptions, function (err) {
+  /** Attempt to send file from /css directory, passing any errors to next route */
+  res.sendFile(req.params.filename, { root: __dirname + '/js/' }, (err) => {
     if ( err )
       next(err);
   });
@@ -78,7 +43,7 @@ app.get(`/`, (req, res, next) => {
   p.css().push(`/css/trinium.css`);
   p.javascript().push(`/js/trinium.js`);
   
-  /** Create 100% wide H2 heading component */
+  /** Create 100% wide H2 heading component (100% wide is the default if you don't use the width() method) */
   p.h2().text(`Welcome To Trinium...`);
   
   /** Create small card component with a white on steel blue header */
@@ -95,37 +60,37 @@ app.get(`/`, (req, res, next) => {
   /** Set form action and method properties */
   form.action(`/`).method(`GET`);
   
-  /** Create 16 column wide form heading (16 columns is also the default and represents 100% wide) */
+  /** Create 100% wide form heading */
   form.h4().text(`Join Our Community...`);
   
-  /** If required, create 13 column wide error-type alert */
+  /** If required, create 100% wide error-type alert */
   if ( req.query.showPasswordCharactersError )
     form.alert().type(`error`).strong(`Error!`).text(`Your password must contain at least one lowercase letter, one uppercase letter, and one number!`);
   
-  /** Create two required six column wide text inputs, separated by 2 space columns */
+  /** Create two required 40% wide text inputs, each appended by 10% wide blanks */
   form.text().width(`40`).name(`firstName`).label(`First Name:`).required(true);
   form.blank().width(`10`);
   form.text().width(`40`).name(`lastName`).label(`Last Name:`).required(true);
   form.blank().width(`10`);
 
-  /** Create two required seven column wide password inputs, separated by 1 space column */
+  /** Create two required 40% wide password inputs, each appended by 10% wide blanks */
   form.password().width(`40`).name(`password`).label(`Choose Password:`).required(true);
   form.blank().width(`10`);
   form.password().width(`40`).name(`password2`).label(`Confirm Password:`).required(true);
   form.blank().width(`10`);
   
-  /** Create optional eight column wide email input */
+  /** Create optional 50% wide email input */
   form.email().width(`50`).name(`email`).label(`Email Address:`);
   
-  /** Create eight column wide horizontally arranged radio group input */
-  form.radios().width(`50`).name(`sex`).label(`Sex:`).align(`horizontal`);
+  /** Create required 50% wide horizontally arranged radio group input */
+  form.radios().width(`50`).name(`sex`).label(`Sex:`).align(`horizontal`).required(true);
   form.option().value(`female`).text(`Female`).selected(true);
   form.option().value(`male`).text(`Male`);
   
-  /** Create six column wide submit button spaced 5 space columns in with a white on steel blue appearance */
-  form.button().addClass(`bg-steel-blue text-white`).addWrapperClass(`fixed`).width(`40`).type(`submit`).text(`Create Account`);
+  /** Create fixed 40% wide submit button in with a white on steel blue appearance */
+  form.button().width(`40`).addClass(`bg-steel-blue text-white`).addWrapperClass(`fixed`).type(`submit`).text(`Create Account`);
 
-  /** Create a tiny sized table */
+  /** Create a small sized table */
   const table = p.table().width(`small`);
   
   /** Create table head */
@@ -155,11 +120,11 @@ app.get(`/`, (req, res, next) => {
     table.data().style(`text-align: center;`).append(p.anchor(false, false).href(`delete?id=${i}`).text(octicons.trashcan.toSVG({ width: 16 })));
   }
   
-  /** Create tiny sized stack component */
+  /** Create fixed small sized stack component with contents centered */
   const stack = p.stack().width(`small`).addWrapperClass(`fixed text-center`);
   
-  /** Append 100% wide H5 heading component to the stack with bottom padding removed byway of a helper class */
-  stack.h5().addWrapperClass(`pb-0`).text(`Miss Molly - Age 2ish`);
+  /** Append 100% wide H5 heading component to the stack */
+  stack.h5().text(`Miss Molly - Age 2ish`);
   
   /** Append 100% wide image component to the stack with shadow applied */
   stack.image().src(`/images/example.jpg`).shadow(true);
@@ -168,17 +133,21 @@ app.get(`/`, (req, res, next) => {
   const blank = p.blank().width(`small`);
   
   /** Append four paragraphs of text with example inline image, link, and special font feature */
-  blank.paragraph().text(`The picture you saw in the stack component with nested heading and image components was of my niece Molly when she was about two years old I would guess.  <img src='/images/example.jpg' class='float-right width-150px image-shadow-tiny m-2'> She's always been a cutie so I figured she'd work well in the demo.`);
+  blank.paragraph().text(`The picture you saw in the stack component with nested heading and image components was of my niece Molly when she was about two years old I would guess.  <img src='/images/example.jpg' class='float-right width-150px shadow-tiny m-2'> She's always been a cutie so I figured she'd work well in the demo.`);
   blank.paragraph().text(`I'm including her again in this blank component that has had four paragraphs and her image appended to show how simple it is to get text and image content to flow together using simple classes like float-left and float-right.`);
   blank.paragraph().text(`You can also see that it's possible to just write HTML inline in the text for simple things like inline images, <a href='http://github.com/om-mani-padme-hum/trinium'>links</a>, <i>special font features</i>, and other traditional inter-paragraph content.`);
   blank.paragraph().text(`You heard me refer to the stack component with the nested heading and image components containing the larger image of my niece enjoying some pizza.  Stack components are extremely useful for combining multiple smaller components adjacent to larger components, or for grouping flex content together for layout purposes.`);
-    
+  
+  /** Create fixed small sized stack component */
   const listWest = p.stack().width(`small`).addWrapperClass(`fixed`);
   
+  /** Append 100% wide H4 heading component to the stack */
   listWest.h4().text(`West Coast Cities`);
   
-  const ul = listWest.unorderedList();
+  /** Append 100% wide unordered list component to the stack */
+  const ul = listWest.unorderedList().addClass(`list-style-square`);
   
+  /** Add several example list items */
   ul.item().text(`Seattle, WA`);
   ul.item().text(`Olympia, WA`);
   ul.item().text(`Portland, OR`);
@@ -188,12 +157,16 @@ app.get(`/`, (req, res, next) => {
   ul.item().text(`Los Angeles, CA`);
   ul.item().text(`San Diego, CA`);
   
+  /** Create fixed small sized stack component */
   const listEast = p.stack().width(`small`).addWrapperClass(`fixed`);
   
+  /** Append 100% wide H4 heading component to the stack */
   listEast.h4().text(`East Coast Cities`);
   
+  /** Create 100% wide unordered list component to the stack */
   const ol = listEast.orderedList();
   
+  /** Add several example list items */
   ol.item().text(`Boston, MA`);
   ol.item().text(`New York, NY`);
   ol.item().text(`Washington, DC`);

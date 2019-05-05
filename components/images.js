@@ -85,7 +85,7 @@ Image.prototype.render = function (indent = 0) {
   
   /** If we're to apply a shadow, add image shadow class */
   if ( this.shadow() )
-    image.addClass(`image-shadow`);
+    image.addClass(`shadow`);
   
   /** Append image to wrapper */
   wrapper.append(image);

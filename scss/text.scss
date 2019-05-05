@@ -152,11 +152,11 @@
 .text-right { text-align: right !important; }
 .text-justify { text-align: justify !important; }
 
-.text-shadow-ty, .text-shadow-tiny { text-shadow: 1px 1px #000000 !important; }
-.text-shadow, .text-shadow-sm, .text-shadow-small { text-shadow: 2px 2px #000000 !important; }
-.text-shadow-md, .text-shadow-medium { text-shadow: 3px 3px #000000 !important; }
-.text-shadow-lg, .text-shadow-large { text-shadow: 5px 5px #000000 !important; }
-.text-shadow-xl, .text-shadow-xlarge { text-shadow: 10px 10px #000000 !important; }
+.text-shadow-ty, .text-shadow-tiny { text-shadow: 2px 2px 1px #000000 !important; }
+.text-shadow, .text-shadow-sm, .text-shadow-small { text-shadow: 2px 2px 2px #000000 !important; }
+.text-shadow-md, .text-shadow-medium { text-shadow: 3px 3px 3px #000000 !important; }
+.text-shadow-lg, .text-shadow-large { text-shadow: 3px 3px 4px #000000 !important; }
+.text-shadow-xl, .text-shadow-xlarge { text-shadow: 5px 5px 5px #000000 !important; }
 
 .text-indent { text-indent: 15px !important; }
 .text-lighter { font-weight: lighter !important; }

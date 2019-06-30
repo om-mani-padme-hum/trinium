@@ -42,7 +42,7 @@
   flex-shrink: $val;
 }
 
-body, .stack, form {
+body, .container, form {
   @include flexbox();
   @include flex-direction();
   @include flex-wrap();
@@ -51,7 +51,7 @@ body, .stack, form {
   align-content: flex-start;
 }
 
-.blank, .stack {
+.blank, .container {
   padding: 0px !important;
 }
 

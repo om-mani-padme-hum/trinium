@@ -120,31 +120,31 @@ app.get(`/`, (req, res, next) => {
     table.data().style(`text-align: center;`).append(p.anchor(false, false).href(`delete?id=${i}`).text(octicons.trashcan.toSVG({ width: 16 })));
   }
   
-  /** Create fixed small sized stack component with contents centered */
-  const stack = p.stack().width(`small`).addWrapperClass(`fixed text-center`);
+  /** Create fixed small sized container component with contents centered */
+  const container = p.container().width(`small`).addWrapperClass(`fixed text-center`);
   
-  /** Append 100% wide H5 heading component to the stack */
-  stack.h5().text(`Miss Molly - Age 2ish`);
+  /** Append 100% wide H5 heading component to the container */
+  container.h5().text(`Miss Molly - Age 2ish`);
   
-  /** Append 100% wide image component to the stack with shadow applied */
-  stack.image().src(`/images/example.jpg`).shadow(true);
+  /** Append 100% wide image component to the container with shadow applied */
+  container.image().src(`/images/example.jpg`).shadow(true);
   
   /** Create fixed, small sized blank component back on the main page */
   const blank = p.blank().width(`small`);
   
   /** Append four paragraphs of text with example inline image, link, and special font feature */
-  blank.paragraph().text(`The picture you saw in the stack component with nested heading and image components was of my niece Molly when she was about two years old I would guess.  <img src='/images/example.jpg' class='float-right width-150px shadow-tiny m-2'> She's always been a cutie so I figured she'd work well in the demo.`);
+  blank.paragraph().text(`The picture you saw in the container component with nested heading and image components was of my niece Molly when she was about two years old I would guess.  <img src='/images/example.jpg' class='float-right width-150px shadow-tiny m-2'> She's always been a cutie so I figured she'd work well in the demo.`);
   blank.paragraph().text(`I'm including her again in this blank component that has had four paragraphs and her image appended to show how simple it is to get text and image content to flow together using simple classes like float-left and float-right.`);
   blank.paragraph().text(`You can also see that it's possible to just write HTML inline in the text for simple things like inline images, <a href='http://github.com/om-mani-padme-hum/trinium'>links</a>, <i>special font features</i>, and other traditional inter-paragraph content.`);
-  blank.paragraph().text(`You heard me refer to the stack component with the nested heading and image components containing the larger image of my niece enjoying some pizza.  Stack components are extremely useful for combining multiple smaller components adjacent to larger components, or for grouping flex content together for layout purposes.`);
+  blank.paragraph().text(`You heard me refer to the container component with the nested heading and image components containing the larger image of my niece enjoying some pizza.  Container components are extremely useful for combining multiple smaller components adjacent to larger components, or for grouping flex content together for layout purposes.`);
   
-  /** Create fixed small sized stack component */
-  const listWest = p.stack().width(`small`).addWrapperClass(`fixed`);
+  /** Create fixed small sized container component */
+  const listWest = p.container().width(`small`).addWrapperClass(`fixed`);
   
-  /** Append 100% wide H4 heading component to the stack */
+  /** Append 100% wide H4 heading component to the container */
   listWest.h4().text(`West Coast Cities`);
   
-  /** Append 100% wide unordered list component to the stack */
+  /** Append 100% wide unordered list component to the container */
   const ul = listWest.unorderedList().addClass(`list-style-square`);
   
   /** Add several example list items */
@@ -157,13 +157,13 @@ app.get(`/`, (req, res, next) => {
   ul.item().text(`Los Angeles, CA`);
   ul.item().text(`San Diego, CA`);
   
-  /** Create fixed small sized stack component */
-  const listEast = p.stack().width(`small`).addWrapperClass(`fixed`);
+  /** Create fixed small sized container component */
+  const listEast = p.container().width(`small`).addWrapperClass(`fixed`);
   
-  /** Append 100% wide H4 heading component to the stack */
+  /** Append 100% wide H4 heading component to the container */
   listEast.h4().text(`East Coast Cities`);
   
-  /** Create 100% wide unordered list component to the stack */
+  /** Create 100% wide unordered list component to the container */
   const ol = listEast.orderedList();
   
   /** Add several example list items */
@@ -175,6 +175,34 @@ app.get(`/`, (req, res, next) => {
   ol.item().text(`Charleston, SC`);
   ol.item().text(`Jacksonville, FL`);
   ol.item().text(`Miami, FL`);
+  
+  /** Create fixed 50% wide accordian component */
+  const accordian = p.accordian().width(`50`).addWrapperClass(`fixed`);
+  
+  /** Create first accordian section */
+  const section1 = accordian.section().addHeaderClass(`bg-steel-blue links-white`);
+  
+  /** Provide example accordian heading and body */
+  section1.header().span().text(`Accordian Heading 1`);
+  section1.paragraph().text(`Accordian Body 1`);
+  
+  /** Create second accordian section */
+  const section2 = accordian.section().addHeaderClass(`bg-steel-blue links-white`);
+  
+  /** Provide example accordian heading and body */
+  section2.header().span().text(`Accordian Heading 2`);
+  section2.paragraph().text(`Accordian Body 2`);
+  
+  /** Create third accordian section */
+  const section3 = accordian.section().addHeaderClass(`bg-steel-blue links-white`);
+  
+  /** Provide example accordian heading and body */
+  const header = section3.header();
+  
+  header.span().text(`Accordian Heading 3 - `);
+  header.span().addClass(`text-red text-bold`).text(`Override`);
+  
+  section3.paragraph().text(`Accordian Body 3`);
   
   /** Render and send page as response */
   res.send(p.render());

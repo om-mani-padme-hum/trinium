@@ -3,6 +3,7 @@ const ezhtml = require(`ezhtml`);
 const ezobjects = require(`ezobjects`);
 
 /** Require local modules */
+const accordians = require(`./accordians`);
 const alerts = require(`./alerts`);
 const anchors = require(`./anchors`);
 const blanks = require(`./blanks`);
@@ -17,7 +18,6 @@ const orderedLists = require(`./ordered-lists`);
 const paragraphs = require(`./paragraphs`);
 const radioGroups = require(`./radio-groups`);
 const selects = require(`./selects`);
-const stacks = require(`./stacks`);
 const tables = require(`./tables`);
 const textAreas = require(`./text-areas`);
 const unorderedLists = require(`./unordered-lists`);
@@ -37,6 +37,19 @@ const configContainer = {
 
 /** Create class */
 ezobjects.createClass(configContainer);
+
+/** Create, if desired append, and return new accordian component */
+Container.prototype.accordian = function (append = true) {
+  /** Create accordian */
+  const accordian = new accordians.Accordian();
+  
+  /** Append accordian to container, if desired */
+  if ( append )
+    this.append(accordian);
+  
+  /** Return accordian for call chaining */
+  return accordian;
+};
 
 /** Add wrapper class helper */
 Container.prototype.addWrapperClass = function (wrapperClass) {
@@ -155,6 +168,19 @@ Container.prototype.color = function (append = true, wrapper = true) {
   
   /** Return input for call chaining */
   return input;
+};
+
+/** Create, if desired append, and return new container component */
+Container.prototype.container = function (append = true) {
+  /** Create container */
+  const container = new Container();
+  
+  /** Append container to container, if desired */
+  if ( append )
+    this.append(container);
+  
+  /** Return container for call chaining */
+  return container;
 };
 
 /** Create, if desired append, and return new date input component */
@@ -476,7 +502,7 @@ Container.prototype.render = function (indent = 0) {
   const widthClass = validation.validateWidth(this.width());
   
   /** Create wrapper div and transfer content */
-  const wrapper = new ezhtml.Div().addClass(widthClass).addClass(`flex-stack`).addClass(this.wrapperClasses().join(` `)).content(this.content());
+  const wrapper = new ezhtml.Div().addClass(widthClass).addClass(`flex-container`).addClass(this.wrapperClasses().join(` `)).content(this.content());
   
   /** Render wrapper */
   return wrapper.render(indent);
@@ -499,17 +525,17 @@ Container.prototype.select = function (append = true, wrapper = true) {
   return select;
 };
 
-/** Create, if desired append, and return new stack component */
-Container.prototype.stack = function (append = true) {
-  /** Create stack */
-  const stack = new Container();
+/** Create, if desired append, and return new span element */
+Container.prototype.span = function (append = true) {
+  /** Create span element */
+  const span = new ezhtml.Span();
   
-  /** Append stack to container, if desired */
+  /** Append span to container, if desired */
   if ( append )
-    this.append(stack);
+    this.append(span);
   
-  /** Return stack for call chaining */
-  return stack;
+  /** Return span for call chaining */
+  return span;
 };
 
 /** Create, if desired append, and return new table component */

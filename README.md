@@ -135,31 +135,31 @@ app.get(`/`, (req, res, next) => {
     table.data().style(`text-align: center;`).append(p.anchor(false, false).href(`delete?id=${i}`).text(octicons.trashcan.toSVG({ width: 16 })));
   }
   
-  /** Create fixed small sized stack component with contents centered */
-  const stack = p.stack().width(`small`).addWrapperClass(`fixed text-center`);
+  /** Create fixed small sized container component with contents centered */
+  const container = p.container().width(`small`).addWrapperClass(`fixed text-center`);
   
-  /** Append 100% wide H5 heading component to the stack */
-  stack.h5().text(`Miss Molly - Age 2ish`);
+  /** Append 100% wide H5 heading component to the container */
+  container.h5().text(`Miss Molly - Age 2ish`);
   
-  /** Append 100% wide image component to the stack with shadow applied */
-  stack.image().src(`/images/example.jpg`).shadow(true);
+  /** Append 100% wide image component to the container with shadow applied */
+  container.image().src(`/images/example.jpg`).shadow(true);
   
   /** Create fixed, small sized blank component back on the main page */
   const blank = p.blank().width(`small`);
   
   /** Append four paragraphs of text with example inline image, link, and special font feature */
-  blank.paragraph().text(`The picture you saw in the stack component with nested heading and image components was of my niece Molly when she was about two years old I would guess.  <img src='/images/example.jpg' class='float-right width-150px shadow-tiny m-2'> She's always been a cutie so I figured she'd work well in the demo.`);
+  blank.paragraph().text(`The picture you saw in the container component with nested heading and image components was of my niece Molly when she was about two years old I would guess.  <img src='/images/example.jpg' class='float-right width-150px shadow-tiny m-2'> She's always been a cutie so I figured she'd work well in the demo.`);
   blank.paragraph().text(`I'm including her again in this blank component that has had four paragraphs and her image appended to show how simple it is to get text and image content to flow together using simple classes like float-left and float-right.`);
   blank.paragraph().text(`You can also see that it's possible to just write HTML inline in the text for simple things like inline images, <a href='http://github.com/om-mani-padme-hum/trinium'>links</a>, <i>special font features</i>, and other traditional inter-paragraph content.`);
-  blank.paragraph().text(`You heard me refer to the stack component with the nested heading and image components containing the larger image of my niece enjoying some pizza.  Stack components are extremely useful for combining multiple smaller components adjacent to larger components, or for grouping flex content together for layout purposes.`);
+  blank.paragraph().text(`You heard me refer to the container component with the nested heading and image components containing the larger image of my niece enjoying some pizza.  Container components are extremely useful for combining multiple smaller components adjacent to larger components, or for grouping flex content together for layout purposes.`);
   
-  /** Create fixed small sized stack component */
-  const listWest = p.stack().width(`small`).addWrapperClass(`fixed`);
+  /** Create fixed small sized container component */
+  const listWest = p.container().width(`small`).addWrapperClass(`fixed`);
   
-  /** Append 100% wide H4 heading component to the stack */
+  /** Append 100% wide H4 heading component to the container */
   listWest.h4().text(`West Coast Cities`);
   
-  /** Append 100% wide unordered list component to the stack */
+  /** Append 100% wide unordered list component to the container */
   const ul = listWest.unorderedList().addClass(`list-style-none`);
   
   /** Add several example list items */
@@ -172,13 +172,13 @@ app.get(`/`, (req, res, next) => {
   ul.item().text(`Los Angeles, CA`);
   ul.item().text(`San Diego, CA`);
   
-  /** Create fixed small sized stack component */
-  const listEast = p.stack().width(`small`).addWrapperClass(`fixed`);
+  /** Create fixed small sized container component */
+  const listEast = p.container().width(`small`).addWrapperClass(`fixed`);
   
-  /** Append 100% wide H4 heading component to the stack */
+  /** Append 100% wide H4 heading component to the container */
   listEast.h4().text(`East Coast Cities`);
   
-  /** Create 100% wide unordered list component to the stack */
+  /** Create 100% wide unordered list component to the container */
   const ol = listEast.orderedList();
   
   /** Add several example list items */
@@ -247,8 +247,8 @@ A page has the following methods:
 * **Page.radios(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
 * **Page.range(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
 * **Page.removeWrapperClass(append = true, wrapper = true)** - Create an image component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
-* **Page.select(append = true)** - Create a stack component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
-* **Page.stack(append = true)** - Create a stack component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.select(append = true)** - Create a container component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
+* **Page.container(append = true)** - Create a container component, append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
 * **Page.table(append = true, wrapper = true)** - Create a table component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
 * **Page.telephone(append = true, wrapper = true)** - Create a table component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
 * **Page.textarea(append = true, wrapper = true)** - Create a table component, return it if wrapper is false, otherwise append it to the page if the append boolean is true, and return it wrapped in a flex-box div of desired size
@@ -306,12 +306,12 @@ Images are EZ HTML Image elements wrapped in a Trinium wrapper EZ HTML Div eleme
 * **Image.size(keyword)** - Set the size of the card using one of the size keywords
 * See the documentation for [EZ HTML Elements and Images](https://github.com/om-mani-padme-hum/ezhtml#method-signatures-common-to-all-elements) for all other methods
 
-### Stacks
+### Containers
 
-Stacks are used to place multiple flex components adjacent to a single flex component, or multiple components next to multiple components, etc.  It's essentially just a sub-container for flex components that wraps just like the body and has no padding so it doesn't compound padding of components.
+Containers are used to place multiple flex components adjacent to a single flex component, or multiple components next to multiple components, etc.  It's essentially just a sub-container for flex components that wraps just like the body and has no padding so it doesn't compound padding of components.
 
-* **Stack.addWrapperClass(className)** - Add class to table wrapper
-* **Stack.size(keyword)** - Set the size of the table using one of the size keywords
+* **Container.addWrapperClass(className)** - Add class to table wrapper
+* **Container.size(keyword)** - Set the size of the table using one of the size keywords
 * See the documentation for [EZ HTML Elements and Container Elements](https://github.com/om-mani-padme-hum/ezhtml#method-signatures-common-to-all-elements) for all other methods, which apply only to the body of this card
 
 ### Tables

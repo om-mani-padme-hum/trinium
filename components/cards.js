@@ -3,6 +3,7 @@ const ezhtml = require(`ezhtml`);
 const ezobjects = require(`ezobjects`);
 
 /** Require local modules */
+const accordians = require(`./accordians`);
 const alerts = require(`./alerts`);
 const anchors = require(`./anchors`);
 const blanks = require(`./blanks`);
@@ -18,7 +19,6 @@ const orderedLists = require(`./ordered-lists`);
 const paragraphs = require(`./paragraphs`);
 const radioGroups = require(`./radio-groups`);
 const selects = require(`./selects`);
-const stacks = require(`./stacks`);
 const tables = require(`./tables`);
 const textAreas = require(`./text-areas`);
 const unorderedLists = require(`./unordered-lists`);
@@ -40,6 +40,19 @@ const configCard = {
 
 /** Create class */
 ezobjects.createClass(configCard);
+
+/** Create, if desired append, and return new accordian component */
+Card.prototype.accordian = function (append = true) {
+  /** Create accordian */
+  const accordian = new accordians.Accordian();
+  
+  /** Append accordian to card, if desired */
+  if ( append )
+    this.append(accordian);
+  
+  /** Return accordian for call chaining */
+  return accordian;
+};
 
 /** Add body class helper */
 Card.prototype.addBodyClass = function (bodyClass) {
@@ -178,6 +191,19 @@ Card.prototype.color = function (append = true, wrapper = true) {
   
   /** Return input for call chaining */
   return input;
+};
+
+/** Create, if desired append, and return new container component */
+Card.prototype.container = function (append = true) {
+  /** Create container */
+  const container = new containers.Container();
+  
+  /** Append container to card, if desired */
+  if ( append )
+    this.append(container);
+  
+  /** Return container for call chaining */
+  return container;
 };
 
 /** Create, if desired append, and return new date input component */
@@ -564,17 +590,17 @@ Card.prototype.select = function (append = true, wrapper = true) {
   return select;
 };
 
-/** Create, if desired append, and return new stack component */
-Card.prototype.stack = function (append = true) {
-  /** Create stack */
-  const stack = new Card();
+/** Create, if desired append, and return new span element */
+Card.prototype.span = function (append = true) {
+  /** Create span element */
+  const span = new ezhtml.Span();
   
-  /** Append stack to card, if desired */
+  /** Append span to card, if desired */
   if ( append )
-    this.append(stack);
+    this.append(span);
   
-  /** Return stack for call chaining */
-  return stack;
+  /** Return span for call chaining */
+  return span;
 };
 
 /** Create, if desired append, and return new table component */

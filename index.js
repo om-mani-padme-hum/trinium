@@ -20,7 +20,6 @@ module.exports.configPage = components.configPage;
 module.exports.configParagraph = components.configParagraph;
 module.exports.configRadioGroup = components.configRadioGroup;
 module.exports.configSelect = components.configSelect;
-module.exports.configStack = components.configStack;
 module.exports.configTable = components.configTable;
 
 module.exports.Alert = components.Alert;
@@ -42,5 +41,4 @@ module.exports.Page = components.Page;
 module.exports.Paragraph = components.Paragraph;
 module.exports.RadioGroup = components.RadioGroup;
 module.exports.Select = components.Select;
-module.exports.Stack = components.Stack;
 module.exports.Table = components.Table;

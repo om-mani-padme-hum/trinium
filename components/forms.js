@@ -3,6 +3,7 @@ const ezhtml = require(`ezhtml`);
 const ezobjects = require(`ezobjects`);
 
 /** Require local modules */
+const accordians = require(`./accordians`);
 const alerts = require(`./alerts`);
 const anchors = require(`./anchors`);
 const blanks = require(`./blanks`);
@@ -16,7 +17,6 @@ const orderedLists = require(`./ordered-lists`);
 const paragraphs = require(`./paragraphs`);
 const radioGroups = require(`./radio-groups`);
 const selects = require(`./selects`);
-const stacks = require(`./stacks`);
 const tables = require(`./tables`);
 const textAreas = require(`./text-areas`);
 const unorderedLists = require(`./unordered-lists`);
@@ -50,6 +50,19 @@ Form.prototype.addWrapperClass = function (wrapperClass) {
   
   /** Return this object for call chaining */
   return this;
+};
+
+/** Create, if desired append, and return new accordian component */
+Form.prototype.accordian = function (append = true) {
+  /** Create accordian */
+  const accordian = new accordians.Accordian();
+  
+  /** Append accordian to form, if desired */
+  if ( append )
+    this.append(accordian);
+  
+  /** Return accordian for call chaining */
+  return accordian;
 };
 
 /** Create, if desired append, and return new alert component */
@@ -153,6 +166,19 @@ Form.prototype.color = function (append = true, wrapper = true) {
   
   /** Return input for call chaining */
   return input;
+};
+
+/** Create, if desired append, and return new container component */
+Form.prototype.container = function (append = true) {
+  /** Create container */
+  const container = new containers.Container();
+  
+  /** Append container to form, if desired */
+  if ( append )
+    this.append(container);
+  
+  /** Return container for call chaining */
+  return container;
 };
 
 /** Create, if desired append, and return new date input component */
@@ -503,17 +529,17 @@ Form.prototype.select = function (append = true, wrapper = true) {
   return select;
 };
 
-/** Create, if desired append, and return new stack component */
-Form.prototype.stack = function (append = true) {
-  /** Create stack */
-  const stack = new stacks.Stack();
+/** Create, if desired append, and return new span element */
+Form.prototype.span = function (append = true) {
+  /** Create span element */
+  const span = new ezhtml.Span();
   
-  /** Append stack to form, if desired */
+  /** Append span to form, if desired */
   if ( append )
-    this.append(stack);
+    this.append(span);
   
-  /** Return stack for call chaining */
-  return stack;
+  /** Return span for call chaining */
+  return span;
 };
 
 /** Create, if desired append, and return new table component */

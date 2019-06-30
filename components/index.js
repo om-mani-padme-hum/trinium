@@ -1,4 +1,5 @@
 /** Re-export components */
+const accordianSections = require(`./accordian-sections`);
 const accordians = require(`./accordians`);
 const alerts = require(`./alerts`);
 const anchors = require(`./anchors`);
@@ -18,10 +19,11 @@ const pages = require(`./pages`);
 const paragraphs = require(`./paragraphs`);
 const radioGroups = require(`./radio-groups`);
 const selects = require(`./selects`);
-const stacks = require(`./stacks`);
 const tables = require(`./tables`);
 const unorderedLists = require(`./unordered-lists`);
 
+module.exports.configAccordianSection = accordianSections.configAccordianSection;
+module.exports.configAccordian = accordians.configAccordian;
 module.exports.configAlert = alerts.configAlert;
 module.exports.configAnchor = anchors.configAnchor;
 module.exports.configBlank = blanks.configBlank;
@@ -42,10 +44,11 @@ module.exports.configPage = pages.configPage;
 module.exports.configParagraph = paragraphs.configParagraph;
 module.exports.configRadioGroup = radioGroups.configRadioGroup;
 module.exports.configSelect = selects.configSelect;
-module.exports.configStack = stacks.configStack;
 module.exports.configTable = tables.configTable;
 module.exports.configUnorderedList = unorderedLists.configUnorderedList;
 
+module.exports.AccordianSection = accordianSections.AccordianSection;
+module.exports.Accordian = accordians.Accordian;
 module.exports.Alert = alerts.Alert;
 module.exports.Anchor = anchors.Anchor;
 module.exports.Blank = blanks.Blank;
@@ -66,6 +69,5 @@ module.exports.Page = pages.Page;
 module.exports.Paragraph = paragraphs.Paragraph;
 module.exports.RadioGroup = radioGroups.RadioGroup;
 module.exports.Select = selects.Select;
-module.exports.Stack = stacks.Stack;
 module.exports.Table = tables.Table;
 module.exports.UnorderedList = unorderedLists.UnorderedList;
